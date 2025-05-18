@@ -84,8 +84,15 @@
         "server": "",
         "email": "",
         "password": "",
-        "account": ""
+        "account": "",
+        "pollInterval": 60
     },
     "objects": [],
-    "instanceObjects": []
+    "instanceObjects": [],
+    "protectedNative": [
+        "password"
+    ],
+    "encryptedNative": [
+        "password"
+    ]
 }
