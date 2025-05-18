@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "calamari",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "news": {
+      "0.0.4": {
+        "en": "First NPM Release",
+        "de": "Erste NPM ",
+        "ru": "Первый NPM Выпуск",
+        "pt": "Primeiro NPM Lançamento",
+        "nl": "Eerste NPM Loslaten",
+        "fr": "Première NPM Libération",
+        "it": "Primo NPM Comunicato",
+        "es": "First NPM Liberación",
+        "pl": "Pierwszy NPM Zwolnienie",
+        "uk": "Перший НПМ Релізи",
+        "zh-cn": "第一个国家预防机制 发布"
+      },
       "0.0.3": {
         "en": "<!--\n\tPlaceholder for the next version (at the beginning of the line):\n\t### **WORK IN PROGRESS**\n-->",
         "de": "<!--\nPlatzhalter für die nächste Version (am Anfang der Linie):\n**WORK IN PROGRESS**\n-->",
