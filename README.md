@@ -28,6 +28,11 @@ This Plugin is used for Integration of Octopus Germany in ioBroker. My Goal was 
 
 ### **WORK IN PROGRESS**
 
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+
 ### 0.0.2 (2025-05-18)
 
 - (huepfman) initial release
