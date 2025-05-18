@@ -9,6 +9,7 @@
   "homepage": "https://github.com/huepfman/ioBroker.calamari",
   "license": "MIT",
   "keywords": [
+    "ioBroker",
     "octopus",
     "api"
   ],
