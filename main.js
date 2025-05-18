@@ -44,9 +44,24 @@ class Calamari extends utils.Adapter {
 		//this.log.info("Octopus Password: " + this.config.password);
 
 		// OctopusGermany initialize
+		this.setState("info.connection", false, true);
 		this.octopusGermany.initialize(this.config.email, this.config.password);
-		this.octopusGermany.login();
 
+		if (this.octopusGermany.login()) {
+			this.fetchDataFromAPI();
+
+			// Starte die zyklische Abfrage
+			this.pollInterval = setInterval(() => {
+				this.fetchDataFromAPI();
+			}, this.config.pollInterval * 1000); // 60 Sekunden
+		} else {
+			this.setState("info.connection", false, false);
+			this.log.info("Login not Possible");
+			this.terminate("No Login");
+		}
+	}
+
+	async fetchDataFromAPI() {
 		const allData = await this.octopusGermany.fetchAllData(this.config.account);
 
 		this.createDataPointsFromJson.call(this, allData.account, this.name + "." + this.instance + ".account");
@@ -63,6 +78,7 @@ class Calamari extends utils.Adapter {
 		);
 
 		this.subscribeStates(this.name + "." + this.instance + ".devices.0.status.isSuspended");
+		this.setState("info.connection", true, true);
 	}
 
 	/**

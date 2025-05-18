@@ -21,7 +21,7 @@
 			"help": "Your E-Mail Adress from the Registration of Octopus"
 		},
 		"password": {
-			"type": "text",
+			"type": "password",
 			"label": "password",
 			"newLine": true,
 			"sm": 12,
@@ -46,7 +46,8 @@
 			"help": "Interval in seconds between data updates",
 			"sm": 4,
 			"xl": 2,
-			"default": 60
+			"default": 60,
+			"newLine": true
 		}
 	}
 }
