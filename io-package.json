@@ -1,116 +1,138 @@
 {
-	"common": {
-		"name": "calamari",
-		"version": "0.0.2",
-		"news": {
-			"0.0.2": {
-				"en": "initial release",
-				"de": "erstausstrahlung",
-				"ru": "первоначальное освобождение",
-				"pt": "lançamento inicial",
-				"nl": "eerste release",
-				"fr": "libération initiale",
-				"it": "rilascio iniziale",
-				"es": "liberación inicial",
-				"pl": "początkowe zwolnienie",
-				"uk": "початковий реліз",
-				"zh-cn": "初步释放"
-			},
-			"0.0.1": {
-				"en": "initial release",
-				"de": "Erstveröffentlichung",
-				"ru": "Начальная версия",
-				"pt": "lançamento inicial",
-				"nl": "Eerste uitgave",
-				"fr": "Première version",
-				"it": "Versione iniziale",
-				"es": "Versión inicial",
-				"pl": "Pierwsze wydanie",
-				"uk": "Початкова версія",
-				"zh-cn": "首次出版"
-			}
-		},
-		"titleLang": {
-			"en": "Calamari",
-			"de": "Calamari",
-			"ru": "Кальмары",
-			"pt": "Calamari",
-			"nl": "Calamares",
-			"fr": "Calamars",
-			"it": "Calamari",
-			"es": "Calamares",
-			"pl": "Calamari",
-			"uk": "Кальмари",
-			"zh-cn": "鱿鱼"
-		},
-		"desc": {
-			"en": "Octopus DE API",
-			"de": "Octopus de api",
-			"ru": "Octopus de Api",
-			"pt": "Octopus de API",
-			"nl": "Octopus de api",
-			"fr": "Octopus de API",
-			"it": "Octopus de API",
-			"es": "Octopus de api",
-			"pl": "Octopus de API",
-			"uk": "Восьминога де API",
-			"zh-cn": "章鱼API"
-		},
-		"authors": ["huepfman <trammer@iebl.de>"],
-		"keywords": ["octopus", "api"],
-		"licenseInformation": {
-			"type": "free",
-			"license": "MIT"
-		},
-		"platform": "Javascript/Node.js",
-		"icon": "calamari.png",
-		"enabled": false,
-		"extIcon": "https://raw.githubusercontent.com/iebl/ioBroker.calamari/master/admin/calamari.png",
-		"readme": "https://github.com/iebl/ioBroker.calamari/blob/master/README.md",
-		"loglevel": "info",
-		"tier": 3,
-		"mode": "daemon",
-		"type": "energy",
-		"compact": true,
-		"connectionType": "cloud",
-		"dataSource": "poll",
-		"adminUI": {
-			"config": "json"
-		},
-		"dependencies": [
-			{
-				"js-controller": ">=6.0.11"
-			}
-		],
-		"globalDependencies": [
-			{
-				"admin": ">=7.4.10"
-			}
-		]
-	},
-	"native": {
-		"server": "",
-		"email": "",
-		"password": "",
-		"account": "",
-		"pollInterval": 60
-	},
-	"objects": [],
-	"instanceObjects": [
-		{
-			"_id": "info.connection",
-			"type": "state",
-			"common": {
-				"role": "indicator.connected",
-				"name": "If communication with adapter works",
-				"type": "boolean",
-				"read": true,
-				"write": false,
-				"def": false
-			},
-			"native": {}
-		}
-	],
-	"protectedNative": ["password"],
-	"encryptedNative": ["password"]
+  "common": {
+    "name": "calamari",
+    "version": "0.0.3",
+    "news": {
+      "0.0.3": {
+        "en": "<!--\n\tPlaceholder for the next version (at the beginning of the line):\n\t### **WORK IN PROGRESS**\n-->",
+        "de": "<!--\nPlatzhalter für die nächste Version (am Anfang der Linie):\n**WORK IN PROGRESS**\n-->",
+        "ru": "<!--\nЗаполнитель для следующей версии (в начале строки):\n###*РАБОТА В ПРОГРЕСЕ**\n-->",
+        "pt": "<!--\nPlaceholder para a próxima versão (no início da linha):\n# # # TRABALHO EM PROGRESSO #\n-->",
+        "nl": "<!--\nPlaatshouder voor de volgende versie (aan het begin van de regel):\nWORK IN PROGRESS\n-->",
+        "fr": "<!--\nPlaceholder pour la prochaine version (au début de la ligne):\n### **WORK IN PROGRESS**\n-->",
+        "it": "<!--\nSegnaposto per la prossima versione (all'inizio della linea):\n######WORK IN PROGRESS #\n-->",
+        "es": "<!--\nTitular para la próxima versión (al principio de la línea):\n#### **WORK IN PROGRESS**\n-->",
+        "pl": "<!--\nUchwyt do następnej wersji (na początku wiersza):\n** * WORK IN PROGRESS **\n-->",
+        "uk": "<!--\nМісцевласника для наступної версії (на початку лінії):\n###**\n-->",
+        "zh-cn": "<!--\n下一个版本(行首)的占位符 :\n** 工作进展**\n-->"
+      },
+      "0.0.2": {
+        "en": "initial release",
+        "de": "erstausstrahlung",
+        "ru": "первоначальное освобождение",
+        "pt": "lançamento inicial",
+        "nl": "eerste release",
+        "fr": "libération initiale",
+        "it": "rilascio iniziale",
+        "es": "liberación inicial",
+        "pl": "początkowe zwolnienie",
+        "uk": "початковий реліз",
+        "zh-cn": "初步释放"
+      },
+      "0.0.1": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "Начальная версия",
+        "pt": "lançamento inicial",
+        "nl": "Eerste uitgave",
+        "fr": "Première version",
+        "it": "Versione iniziale",
+        "es": "Versión inicial",
+        "pl": "Pierwsze wydanie",
+        "uk": "Початкова версія",
+        "zh-cn": "首次出版"
+      }
+    },
+    "titleLang": {
+      "en": "Calamari",
+      "de": "Calamari",
+      "ru": "Кальмары",
+      "pt": "Calamari",
+      "nl": "Calamares",
+      "fr": "Calamars",
+      "it": "Calamari",
+      "es": "Calamares",
+      "pl": "Calamari",
+      "uk": "Кальмари",
+      "zh-cn": "鱿鱼"
+    },
+    "desc": {
+      "en": "Octopus DE API",
+      "de": "Octopus de api",
+      "ru": "Octopus de Api",
+      "pt": "Octopus de API",
+      "nl": "Octopus de api",
+      "fr": "Octopus de API",
+      "it": "Octopus de API",
+      "es": "Octopus de api",
+      "pl": "Octopus de API",
+      "uk": "Восьминога де API",
+      "zh-cn": "章鱼API"
+    },
+    "authors": [
+      "huepfman <trammer@iebl.de>"
+    ],
+    "keywords": [
+      "octopus",
+      "api"
+    ],
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
+    "platform": "Javascript/Node.js",
+    "icon": "calamari.png",
+    "enabled": false,
+    "extIcon": "https://raw.githubusercontent.com/iebl/ioBroker.calamari/master/admin/calamari.png",
+    "readme": "https://github.com/iebl/ioBroker.calamari/blob/master/README.md",
+    "loglevel": "info",
+    "tier": 3,
+    "mode": "daemon",
+    "type": "energy",
+    "compact": true,
+    "connectionType": "cloud",
+    "dataSource": "poll",
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=6.0.11"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=7.4.10"
+      }
+    ]
+  },
+  "native": {
+    "server": "",
+    "email": "",
+    "password": "",
+    "account": "",
+    "pollInterval": 60
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "If communication with adapter works",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ],
+  "protectedNative": [
+    "password"
+  ],
+  "encryptedNative": [
+    "password"
+  ]
 }
