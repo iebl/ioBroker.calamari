@@ -17,14 +17,32 @@ Octopus DE API
 
 ### DISCLAIMER
 
-Please make sure that you consider copyrights and trademarks when you use names or logos of a company and add a disclaimer to your README.
-You can check other adapters for examples or ask in the developer community. Using a name or logo of a company without permission may cause legal problems for you.
+This integration is not officially affiliated with Octopus Energy Germany. Use at your own risk.
+This Work based on the Project https://github.com/thecem/octopus_germany
+
+This project is open-source software released under the MIT License.
+
+While we welcome contributions, we are not obligated to provide support, maintenance, or updates for this software.
+Users are responsible for ensuring that their use of this software complies with applicable laws and regulations.
 
 ### Getting started
 
 This Plugin is used for Integration of Octopus Germany in ioBroker. My Goal was to enable or disable the Smart Loading Function.
 
+npm i iobroker.calamari
+
+After Iintsallation you must add your Account Informations in the Adapter Settings.
+At the moment you must also look for your Energy Contract Number and set it in the configuration.
+
+After starting the Adapter there will be a Datapoints with all Informations from the API.
+
 ## Changelog
+
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### **WORK IN PROGRESS**
+-->
+
 ### 0.0.6 (2025-05-18)
 
 chai-as-promised update
@@ -39,11 +57,6 @@ Workflow in GIT
 - (huepfman) First NPM Release
 
 ### 0.0.3 (2025-05-18)
-
-<!--
-	Placeholder for the next version (at the beginning of the line):
-	### **WORK IN PROGRESS**
--->
 
 ### 0.0.2 (2025-05-18)
 
@@ -76,8 +89,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-Disclaimer
-This integration is not officially affiliated with Octopus Energy Germany. Use at your own risk.
-
-THis Work based on the Project https://github.com/thecem/octopus_germany
