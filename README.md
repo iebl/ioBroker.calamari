@@ -25,6 +25,11 @@ You can check other adapters for examples or ask in the developer community. Usi
 This Plugin is used for Integration of Octopus Germany in ioBroker. My Goal was to enable or disable the Smart Loading Function.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+
+chai-as-promised update
+
 ### 0.0.5 (2025-05-18)
 
 NPM Package updates
