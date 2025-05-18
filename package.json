@@ -1,6 +1,6 @@
 {
   "name": "iobroker.calamari",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Octopus DE API",
   "author": {
     "name": "huepfman",
@@ -42,7 +42,7 @@
     "@types/sinon": "^17.0.4",
     "@types/sinon-chai": "^4.0.0",
     "chai": "^4.5.0",
-    "chai-as-promised": "^8.0.2",
+    "chai-as-promised": "^8.0.1",
     "eslint": "^9.27.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.4.0",

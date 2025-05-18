@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "calamari",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "news": {
+      "0.0.5": {
+        "en": "NPM Package updates\nWorkflow in GIT",
+        "de": "NPM Paket-Updates\nWorkflow in GIT",
+        "ru": "НПМ Обновления пакетов\nРабочий процесс в GIT",
+        "pt": "NPM Atualizações do pacote\nFluxo de trabalho no GIT",
+        "nl": "NPM Pakketupdates\nWerkstroom in GIT",
+        "fr": "NPM Mises à jour du paquet\nFlux de travail en GIT",
+        "it": "NPM Aggiornamenti del pacchetto\nFlusso di lavoro in GIT",
+        "es": "NPM Actualizaciones del paquete\nFlujo de trabajo en GIT",
+        "pl": "NPM Aktualizacja opakowania\nPrzepływ pracy w GIT",
+        "uk": "ПМ Оновлення пакета\nРобочий потік в GIT",
+        "zh-cn": "国家预防机制 软件包更新\nGIT中的工作流量"
+      },
       "0.0.4": {
         "en": "First NPM Release",
         "de": "Erste NPM ",
