@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "calamari",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "news": {
+      "0.0.6": {
+        "en": "chai-as-promised update",
+        "de": "chai-as-promised update",
+        "ru": "обновление chai-as-promised",
+        "pt": "atualização chai as-promised",
+        "nl": "chai-as-promised update",
+        "fr": "mise à jour prévue",
+        "it": "aggiornamento",
+        "es": "chai-as-promised update",
+        "pl": "chai- as- obiecana aktualizacja",
+        "uk": "chai-as-promized оновлення",
+        "zh-cn": "已承诺更新"
+      },
       "0.0.5": {
         "en": "NPM Package updates\nWorkflow in GIT",
         "de": "NPM Paket-Updates\nWorkflow in GIT",
