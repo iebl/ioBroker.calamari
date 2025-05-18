@@ -5,5 +5,11 @@
     "server": "serwer",
     "email": "e-mail",
     "password": "hasło",
-    "account": "Konto"
+    "account": "Konto",
+    "pollInterval": "Polinterval",
+    "URL of the API Server": "URL serwera API",
+    "Your E-Mail Adress from the Registration of Octopus": "Twój adres e-mail z rejestracji Octopus",
+    "Password of Acount from Octopus": "Hasło Acount z Octopus",
+    "Electricity contract number": "Numer kontraktu energii elektrycznej",
+    "Interval in seconds between data updates": "Interwał w sekundach między aktualizacjami danych"
 }

@@ -5,5 +5,11 @@
     "server": "服务器",
     "email": "电子邮件",
     "password": "密码",
-    "account": "帐户"
+    "account": "帐户",
+    "pollInterval": "Pollinterval",
+    "URL of the API Server": "API服务器的URL",
+    "Your E-Mail Adress from the Registration of Octopus": "您从章鱼注册中的电子邮件地址",
+    "Password of Acount from Octopus": "来自章鱼的acount密码",
+    "Electricity contract number": "电力合同编号",
+    "Interval in seconds between data updates": "数据更新之间的秒间隔"
 }

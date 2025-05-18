@@ -1,9 +1,15 @@
 {
-	"calamari adapter settings": "Adaptereinstellungen für calamari",
-	"option1": "Option1",
-	"option2": "Option2",
-	"server": "API-URL",
-	"email": "E-Mail",
-	"password": "Passwort",
-	"account": "Konto"
+    "calamari adapter settings": "Adaptereinstellungen für calamari",
+    "option1": "Option1",
+    "option2": "Option2",
+    "server": "API-URL",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "account": "Konto",
+    "pollInterval": "Pollinterval",
+    "URL of the API Server": "URL des API -Servers",
+    "Your E-Mail Adress from the Registration of Octopus": "Ihre E-Mail-Adresse aus der Registrierung von Octopus",
+    "Password of Acount from Octopus": "Passwort von Account von Octopus",
+    "Electricity contract number": "Stromvertragsnummer",
+    "Interval in seconds between data updates": "Intervall in Sekunden zwischen Datenaktualisierungen"
 }

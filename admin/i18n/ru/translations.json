@@ -5,5 +5,11 @@
     "server": "сервер",
     "email": "электронная почта",
     "password": "пароль",
-    "account": "Счет"
+    "account": "Счет",
+    "pollInterval": "Заводно",
+    "URL of the API Server": "URL -адрес сервера API",
+    "Your E-Mail Adress from the Registration of Octopus": "Ваша электронная почта от регистрации осьминога",
+    "Password of Acount from Octopus": "Пароль Acount от осьминога",
+    "Electricity contract number": "Номер контракта на электроэнергию",
+    "Interval in seconds between data updates": "Интервал в секундах между обновлениями данных"
 }

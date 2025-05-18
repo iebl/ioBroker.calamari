@@ -5,5 +5,11 @@
     "server": "server",
     "email": "e-mail",
     "password": "wachtwoord",
-    "account": "Rekening"
+    "account": "Rekening",
+    "pollInterval": "Pollinterval",
+    "URL of the API Server": "URL van de API -server",
+    "Your E-Mail Adress from the Registration of Octopus": "Uw e-mailadres van de registratie van Octopus",
+    "Password of Acount from Octopus": "Wachtwoord van Acount van Octopus",
+    "Electricity contract number": "Elektriciteitscontractnummer",
+    "Interval in seconds between data updates": "Interval in seconden tussen gegevensupdates"
 }

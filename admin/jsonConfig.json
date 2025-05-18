@@ -5,22 +5,48 @@
 		"server": {
 			"type": "text",
 			"label": "server",
-			"newLine": true
+			"newLine": true,
+			"sm": 12,
+			"md": 6,
+			"lg": 4,
+			"help": "URL of the API Server"
 		},
 		"email": {
 			"type": "text",
 			"label": "email",
-			"newLine": true
+			"newLine": true,
+			"sm": 12,
+			"md": 6,
+			"lg": 4,
+			"help": "Your E-Mail Adress from the Registration of Octopus"
 		},
 		"password": {
 			"type": "text",
 			"label": "password",
-			"newLine": true
+			"newLine": true,
+			"sm": 12,
+			"md": 6,
+			"lg": 4,
+			"help": "Password of Acount from Octopus"
 		},
 		"account": {
 			"type": "text",
 			"label": "account",
-			"newLine": true
+			"newLine": true,
+			"sm": 12,
+			"md": 6,
+			"lg": 4,
+			"help": "Electricity contract number"
+		},
+		"pollInterval": {
+			"type": "number",
+			"min": 5,
+			"max": 3600,
+			"label": "Poll Interval",
+			"help": "Interval in seconds between data updates",
+			"sm": 4,
+			"xl": 2,
+			"default": 60
 		}
 	}
 }
