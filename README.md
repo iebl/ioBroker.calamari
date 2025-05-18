@@ -28,6 +28,8 @@ This Plugin is used for Integration of Octopus Germany in ioBroker. My Goal was 
 
 ### **WORK IN PROGRESS**
 
+- (huepfman) First NPM Release
+
 ### 0.0.3 (2025-05-18)
 
 <!--
