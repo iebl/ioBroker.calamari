@@ -1,98 +1,89 @@
 {
-    "common": {
-        "name": "calamari",
-        "version": "0.0.1",
-        "news": {
-            "0.0.1": {
-                "en": "initial release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "uk": "Початкова версія",
-                "zh-cn": "首次出版"
-            }
-        },
-        "titleLang": {
-            "en": "Calamari",
-            "de": "Calamari",
-            "ru": "Кальмары",
-            "pt": "Calamari",
-            "nl": "Calamares",
-            "fr": "Calamars",
-            "it": "Calamari",
-            "es": "Calamares",
-            "pl": "Calamari",
-            "uk": "Кальмари",
-            "zh-cn": "鱿鱼"
-        },
-        "desc": {
-            "en": "Octopus DE API",
-            "de": "Octopus de api",
-            "ru": "Octopus de Api",
-            "pt": "Octopus de API",
-            "nl": "Octopus de api",
-            "fr": "Octopus de API",
-            "it": "Octopus de API",
-            "es": "Octopus de api",
-            "pl": "Octopus de API",
-            "uk": "Восьминога де API",
-            "zh-cn": "章鱼API"
-        },
-        "authors": [
-            "huepfman <trammer@iebl.de>"
-        ],
-        "keywords": [
-            "octopus",
-            "api"
-        ],
-        "licenseInformation": {
-            "type": "free",
-            "license": "MIT"
-        },
-        "platform": "Javascript/Node.js",
-        "icon": "calamari.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/huepfman/ioBroker.calamari/main/admin/calamari.png",
-        "readme": "https://github.com/huepfman/ioBroker.calamari/blob/main/README.md",
-        "loglevel": "info",
-        "tier": 3,
-        "mode": "daemon",
-        "type": "energy",
-        "compact": true,
-        "connectionType": "cloud",
-        "dataSource": "poll",
-        "adminUI": {
-            "config": "json"
-        },
-        "dependencies": [
-            {
-                "js-controller": ">=6.0.11"
-            }
-        ],
-        "globalDependencies": [
-            {
-                "admin": "7.0.23"
-            }
-        ]
-    },
-    "native": {
-        "server": "",
-        "email": "",
-        "password": "",
-        "account": "",
-        "pollInterval": 60
-    },
-    "objects": [],
-    "instanceObjects": [],
-    "protectedNative": [
-        "password"
-    ],
-    "encryptedNative": [
-        "password"
-    ]
+	"common": {
+		"name": "calamari",
+		"version": "0.0.1",
+		"news": {
+			"0.0.1": {
+				"en": "initial release",
+				"de": "Erstveröffentlichung",
+				"ru": "Начальная версия",
+				"pt": "lançamento inicial",
+				"nl": "Eerste uitgave",
+				"fr": "Première version",
+				"it": "Versione iniziale",
+				"es": "Versión inicial",
+				"pl": "Pierwsze wydanie",
+				"uk": "Початкова версія",
+				"zh-cn": "首次出版"
+			}
+		},
+		"titleLang": {
+			"en": "Calamari",
+			"de": "Calamari",
+			"ru": "Кальмары",
+			"pt": "Calamari",
+			"nl": "Calamares",
+			"fr": "Calamars",
+			"it": "Calamari",
+			"es": "Calamares",
+			"pl": "Calamari",
+			"uk": "Кальмари",
+			"zh-cn": "鱿鱼"
+		},
+		"desc": {
+			"en": "Octopus DE API",
+			"de": "Octopus de api",
+			"ru": "Octopus de Api",
+			"pt": "Octopus de API",
+			"nl": "Octopus de api",
+			"fr": "Octopus de API",
+			"it": "Octopus de API",
+			"es": "Octopus de api",
+			"pl": "Octopus de API",
+			"uk": "Восьминога де API",
+			"zh-cn": "章鱼API"
+		},
+		"authors": ["huepfman <trammer@iebl.de>"],
+		"keywords": ["octopus", "api"],
+		"licenseInformation": {
+			"type": "free",
+			"license": "MIT"
+		},
+		"platform": "Javascript/Node.js",
+		"icon": "calamari.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/huepfman/ioBroker.calamari/main/admin/calamari.png",
+		"readme": "https://github.com/huepfman/ioBroker.calamari/blob/main/README.md",
+		"loglevel": "info",
+		"tier": 3,
+		"mode": "daemon",
+		"type": "energy",
+		"compact": true,
+		"connectionType": "cloud",
+		"dataSource": "poll",
+		"adminUI": {
+			"config": "json"
+		},
+		"dependencies": [
+			{
+				"js-controller": ">=6.0.11"
+			}
+		],
+		"globalDependencies": [
+			{
+				"admin": ">=7.0.23"
+			}
+		]
+	},
+	"native": {
+		"server": "",
+		"email": "",
+		"password": "",
+		"account": "",
+		"pollInterval": 60
+	},
+	"objects": [],
+	"instanceObjects": [],
+	"protectedNative": ["password"],
+	"encryptedNative": ["password"]
 }
