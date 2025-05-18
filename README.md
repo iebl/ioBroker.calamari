@@ -26,6 +26,10 @@ This Plugin is used for Integration of Octopus Germany in ioBroker. My Goal was 
 
 ## Changelog
 
+### 0.0.1 (2025-05-18)
+
+- initial Release
+
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
