@@ -2,6 +2,11 @@
 	"i18n": true,
 	"type": "panel",
 	"items": {
+		"_connectionSettings": {
+			"type": "header",
+			"text": "Connection Settings",
+			"size": 3
+		},
 		"server": {
 			"type": "text",
 			"label": "server",
@@ -18,7 +23,7 @@
 			"sm": 12,
 			"md": 6,
 			"lg": 4,
-			"help": "Your E-Mail Adress from the Registration of Octopus"
+			"help": "Your E-Mail Address from the Registration of Octopus"
 		},
 		"password": {
 			"type": "password",
@@ -27,7 +32,7 @@
 			"sm": 12,
 			"md": 6,
 			"lg": 4,
-			"help": "Password of Acount from Octopus"
+			"help": "Password of Account from Octopus"
 		},
 		"account": {
 			"type": "text",
@@ -36,7 +41,13 @@
 			"sm": 12,
 			"md": 6,
 			"lg": 4,
-			"help": "Electricity contract number"
+			"help": "Electricity contract number (leave empty to auto-discover)"
+		},
+		"_pollingSettings": {
+			"type": "header",
+			"text": "Polling Settings",
+			"size": 3,
+			"newLine": true
 		},
 		"pollInterval": {
 			"type": "number",
@@ -48,6 +59,399 @@
 			"xl": 2,
 			"default": 60,
 			"newLine": true
+		},
+		"_chargingPreferences": {
+			"type": "header",
+			"text": "Vehicle Charging Preferences (Optional)",
+			"size": 3,
+			"newLine": true
+		},
+		"enableChargingPreferences": {
+			"type": "checkbox",
+			"label": "Enable Charging Preferences",
+			"help": "Enable automatic setting of vehicle charging preferences",
+			"default": false,
+			"newLine": true
+		},
+		"weekdayTargetSoc": {
+			"type": "number",
+			"min": 0,
+			"max": 100,
+			"label": "Weekday Target SoC (%)",
+			"help": "Target state of charge for weekdays (Monday-Friday)",
+			"default": 80,
+			"newLine": true,
+			"hidden": "!data.enableChargingPreferences"
+		},
+		"weekendTargetSoc": {
+			"type": "number",
+			"min": 0,
+			"max": 100,
+			"label": "Weekend Target SoC (%)",
+			"help": "Target state of charge for weekends (Saturday-Sunday)",
+			"default": 90,
+			"hidden": "!data.enableChargingPreferences"
+		},
+		"weekdayTargetTime": {
+			"type": "text",
+			"label": "Weekday Target Time (HH:MM)",
+			"help": "Target time for weekday charging (e.g., 07:00)",
+			"default": "07:00",
+			"newLine": true,
+			"hidden": "!data.enableChargingPreferences"
+		},
+		"weekendTargetTime": {
+			"type": "text",
+			"label": "Weekend Target Time (HH:MM)",
+			"help": "Target time for weekend charging (e.g., 09:00)",
+			"default": "09:00",
+			"hidden": "!data.enableChargingPreferences"
+		},
+		"_aiMode": {
+			"type": "header",
+			"text": "AI Mode - Intelligent Battery Charging (Beta)",
+			"size": 3,
+			"newLine": true
+		},
+		"enableAiMode": {
+			"type": "checkbox",
+			"label": "Enable AI Mode",
+			"help": "Enable AI-based battery charging decisions based on weather forecast and PV production",
+			"default": false,
+			"newLine": true
+		},
+		"_weatherApi": {
+			"type": "header",
+			"text": "Weather API Settings",
+			"size": 5,
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"weatherApiProvider": {
+			"type": "select",
+			"label": "Weather API Provider",
+			"options": [
+				{"label": "OpenWeatherMap", "value": "openweathermap"},
+				{"label": "WeatherAPI.com", "value": "weatherapi"},
+				{"label": "Tomorrow.io", "value": "tomorrow"}
+			],
+			"default": "openweathermap",
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"weatherApiKey": {
+			"type": "text",
+			"label": "Weather API Key",
+			"help": "API key for weather forecast service",
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"locationLat": {
+			"type": "number",
+			"label": "Latitude",
+			"help": "Latitude of your location (e.g., 51.1657)",
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"locationLon": {
+			"type": "number",
+			"label": "Longitude",
+			"help": "Longitude of your location (e.g., 10.4515)",
+			"hidden": "!data.enableAiMode"
+		},
+		"_claudeApi": {
+			"type": "header",
+			"text": "Claude AI Settings",
+			"size": 5,
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"claudeApiKey": {
+			"type": "password",
+			"label": "Claude API Key",
+			"help": "Anthropic Claude API key for AI decisions",
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"claudeModel": {
+			"type": "select",
+			"label": "Claude Model",
+			"options": [
+				{"label": "Claude 3.5 Sonnet (Recommended)", "value": "claude-3-5-sonnet-20241022"},
+				{"label": "Claude 3.5 Haiku (Fast & Cheap)", "value": "claude-3-5-haiku-20241022"},
+				{"label": "Claude 3 Opus (Most Capable)", "value": "claude-3-opus-20240229"}
+			],
+			"default": "claude-3-5-sonnet-20241022",
+			"hidden": "!data.enableAiMode"
+		},
+		"_pvConfiguration": {
+			"type": "header",
+			"text": "PV System Configuration",
+			"size": 5,
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"pvArray1Enabled": {
+			"type": "checkbox",
+			"label": "PV Array 1 Enabled",
+			"default": true,
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"pvArray1Power": {
+			"type": "number",
+			"min": 0,
+			"label": "PV Array 1 - Peak Power (kWp)",
+			"default": 3,
+			"hidden": "!data.enableAiMode || !data.pvArray1Enabled"
+		},
+		"pvArray1Orientation": {
+			"type": "select",
+			"label": "PV Array 1 - Orientation",
+			"options": [
+				{"label": "North", "value": "N"},
+				{"label": "Northeast", "value": "NE"},
+				{"label": "East", "value": "E"},
+				{"label": "Southeast", "value": "SE"},
+				{"label": "South", "value": "S"},
+				{"label": "Southwest", "value": "SW"},
+				{"label": "West", "value": "W"},
+				{"label": "Northwest", "value": "NW"}
+			],
+			"default": "E",
+			"hidden": "!data.enableAiMode || !data.pvArray1Enabled"
+		},
+		"pvArray1Tilt": {
+			"type": "number",
+			"min": 0,
+			"max": 90,
+			"label": "PV Array 1 - Tilt Angle (degrees)",
+			"help": "0 = horizontal, 90 = vertical",
+			"default": 0,
+			"newLine": true,
+			"hidden": "!data.enableAiMode || !data.pvArray1Enabled"
+		},
+		"pvArray2Enabled": {
+			"type": "checkbox",
+			"label": "PV Array 2 Enabled",
+			"default": true,
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"pvArray2Power": {
+			"type": "number",
+			"min": 0,
+			"label": "PV Array 2 - Peak Power (kWp)",
+			"default": 4.2,
+			"hidden": "!data.enableAiMode || !data.pvArray2Enabled"
+		},
+		"pvArray2Orientation": {
+			"type": "select",
+			"label": "PV Array 2 - Orientation",
+			"options": [
+				{"label": "North", "value": "N"},
+				{"label": "Northeast", "value": "NE"},
+				{"label": "East", "value": "E"},
+				{"label": "Southeast", "value": "SE"},
+				{"label": "South", "value": "S"},
+				{"label": "Southwest", "value": "SW"},
+				{"label": "West", "value": "W"},
+				{"label": "Northwest", "value": "NW"}
+			],
+			"default": "S",
+			"hidden": "!data.enableAiMode || !data.pvArray2Enabled"
+		},
+		"pvArray2Tilt": {
+			"type": "number",
+			"min": 0,
+			"max": 90,
+			"label": "PV Array 2 - Tilt Angle (degrees)",
+			"default": 52,
+			"newLine": true,
+			"hidden": "!data.enableAiMode || !data.pvArray2Enabled"
+		},
+		"pvArray3Enabled": {
+			"type": "checkbox",
+			"label": "PV Array 3 Enabled",
+			"default": true,
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"pvArray3Power": {
+			"type": "number",
+			"min": 0,
+			"label": "PV Array 3 - Peak Power (kWp)",
+			"default": 1.6,
+			"hidden": "!data.enableAiMode || !data.pvArray3Enabled"
+		},
+		"pvArray3Orientation": {
+			"type": "select",
+			"label": "PV Array 3 - Orientation",
+			"options": [
+				{"label": "North", "value": "N"},
+				{"label": "Northeast", "value": "NE"},
+				{"label": "East", "value": "E"},
+				{"label": "Southeast", "value": "SE"},
+				{"label": "South", "value": "S"},
+				{"label": "Southwest", "value": "SW"},
+				{"label": "West", "value": "W"},
+				{"label": "Northwest", "value": "NW"}
+			],
+			"default": "W",
+			"hidden": "!data.enableAiMode || !data.pvArray3Enabled"
+		},
+		"pvArray3Tilt": {
+			"type": "number",
+			"min": 0,
+			"max": 90,
+			"label": "PV Array 3 - Tilt Angle (degrees)",
+			"default": 0,
+			"newLine": true,
+			"hidden": "!data.enableAiMode || !data.pvArray3Enabled"
+		},
+		"_batteryConfiguration": {
+			"type": "header",
+			"text": "Battery Configuration",
+			"size": 5,
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"batteryCapacity": {
+			"type": "number",
+			"min": 0,
+			"label": "Battery Capacity (kWh)",
+			"help": "Total usable battery capacity",
+			"default": 10,
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"batteryMinSoc": {
+			"type": "number",
+			"min": 0,
+			"max": 100,
+			"label": "Minimum SOC (%)",
+			"help": "Minimum battery state of charge to maintain",
+			"default": 20,
+			"hidden": "!data.enableAiMode"
+		},
+		"batteryMaxChargePower": {
+			"type": "number",
+			"min": 0,
+			"label": "Max Charge Power (kW)",
+			"help": "Maximum charging power of battery",
+			"default": 5,
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"_evccIntegration": {
+			"type": "header",
+			"text": "EVCC MQTT Integration",
+			"size": 5,
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"mqttEnabled": {
+			"type": "checkbox",
+			"label": "Enable MQTT Connection",
+			"default": false,
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"mqttHost": {
+			"type": "text",
+			"label": "MQTT Broker Host",
+			"default": "localhost",
+			"newLine": true,
+			"hidden": "!data.enableAiMode || !data.mqttEnabled"
+		},
+		"mqttPort": {
+			"type": "number",
+			"label": "MQTT Broker Port",
+			"default": 1883,
+			"hidden": "!data.enableAiMode || !data.mqttEnabled"
+		},
+		"mqttUsername": {
+			"type": "text",
+			"label": "MQTT Username (optional)",
+			"newLine": true,
+			"hidden": "!data.enableAiMode || !data.mqttEnabled"
+		},
+		"mqttPassword": {
+			"type": "password",
+			"label": "MQTT Password (optional)",
+			"hidden": "!data.enableAiMode || !data.mqttEnabled"
+		},
+		"evccBaseTopic": {
+			"type": "text",
+			"label": "EVCC Base Topic",
+			"help": "Base MQTT topic for EVCC (e.g., evcc)",
+			"default": "evcc",
+			"newLine": true,
+			"hidden": "!data.enableAiMode || !data.mqttEnabled"
+		},
+		"_historyAnalysis": {
+			"type": "header",
+			"text": "Historical Consumption Analysis",
+			"size": 5,
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"enableHistoryAnalysis": {
+			"type": "checkbox",
+			"label": "Enable Historical Analysis",
+			"help": "Use historical consumption data from History Adapter for better AI decisions",
+			"default": true,
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"historyInstance": {
+			"type": "text",
+			"label": "History Adapter Instance",
+			"help": "Instance name of your History adapter (e.g., history.0, influxdb.0, sql.0)",
+			"default": "history.0",
+			"newLine": true,
+			"hidden": "!data.enableAiMode || !data.enableHistoryAnalysis"
+		},
+		"evccPowerState": {
+			"type": "text",
+			"label": "EVCC Home Power State",
+			"help": "State path for home power consumption (e.g., evcc.0.site.homePower)",
+			"default": "evcc.0.site.homePower",
+			"hidden": "!data.enableAiMode || !data.enableHistoryAnalysis"
+		},
+		"historyAnalysisDays": {
+			"type": "number",
+			"min": 1,
+			"max": 30,
+			"label": "Analysis Days",
+			"help": "Number of days of historical data to analyze",
+			"default": 7,
+			"newLine": true,
+			"hidden": "!data.enableAiMode || !data.enableHistoryAnalysis"
+		},
+		"_aiDecisionSettings": {
+			"type": "header",
+			"text": "AI Decision Settings",
+			"size": 5,
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"aiDecisionTime": {
+			"type": "text",
+			"label": "Daily Decision Time (HH:MM)",
+			"help": "Time when AI makes daily charging decision (after 17:00 when dispatches are available)",
+			"default": "17:30",
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"aiConsiderDays": {
+			"type": "number",
+			"min": 1,
+			"max": 7,
+			"label": "Forecast Days",
+			"help": "Number of days to consider in forecast",
+			"default": 2,
+			"hidden": "!data.enableAiMode"
 		}
 	}
 }
