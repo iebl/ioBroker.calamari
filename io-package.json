@@ -1,8 +1,21 @@
 {
 	"common": {
 		"name": "calamari",
-		"version": "0.0.6",
+		"version": "1.0.0",
 		"news": {
+			"1.0.0": {
+				"en": "Major release: AI Mode with intelligent battery charging, historical consumption analysis, multi-device support, pricing data, cheap phase detection",
+				"de": "Major Release: KI-Modus mit intelligenter Batterieladung, historische Verbrauchsanalyse, Multi-Device-Unterstützung, Preisdaten, Günstigphasen-Erkennung",
+				"ru": "Основной выпуск: режим ИИ с интеллектуальной зарядкой аккумулятора, анализ исторического потребления, поддержка нескольких устройств, данные о ценах, обнаружение дешевых фаз",
+				"pt": "Lançamento principal: Modo AI com carregamento inteligente da bateria, análise de consumo histórico, suporte a vários dispositivos, dados de preços, detecção de fase barata",
+				"nl": "Grote release: AI-modus met intelligente batterij opladen, historische verbruiksanalyse, multi-device ondersteuning, prijsgegevens, goedkope fase detectie",
+				"fr": "Version majeure: Mode IA avec charge intelligente de la batterie, analyse de consommation historique, prise en charge multi-appareils, données de tarification, détection de phase bon marché",
+				"it": "Versione principale: Modalità AI con ricarica intelligente della batteria, analisi del consumo storico, supporto multi-dispositivo, dati sui prezzi, rilevamento fase economica",
+				"es": "Lanzamiento principal: Modo AI con carga inteligente de batería, análisis de consumo histórico, soporte multidispositivo, datos de precios, detección de fase barata",
+				"pl": "Główne wydanie: Tryb AI z inteligentnym ładowaniem akumulatora, analiza historycznego zużycia, obsługa wielu urządzeń, dane cenowe, wykrywanie taniej fazy",
+				"uk": "Основний випуск: режим ШІ з інтелектуальною зарядкою акумулятора, аналіз історичного споживання, підтримка кількох пристроїв, цінові дані, виявлення дешевої фази",
+				"zh-cn": "主要版本：具有智能电池充电、历史消耗分析、多设备支持、定价数据、廉价阶段检测的 AI 模式"
+			},
 			"0.0.6": {
 				"en": "chai-as-promised update",
 				"de": "chai-as-promised update",
