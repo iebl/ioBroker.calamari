@@ -1,212 +1,223 @@
 {
-	"common": {
-		"name": "calamari",
-		"version": "1.0.0",
-		"news": {
-			"1.0.0": {
-				"en": "Major release: AI Mode with intelligent battery charging, historical consumption analysis, multi-device support, pricing data, cheap phase detection",
-				"de": "Major Release: KI-Modus mit intelligenter Batterieladung, historische Verbrauchsanalyse, Multi-Device-Unterstützung, Preisdaten, Günstigphasen-Erkennung",
-				"ru": "Основной выпуск: режим ИИ с интеллектуальной зарядкой аккумулятора, анализ исторического потребления, поддержка нескольких устройств, данные о ценах, обнаружение дешевых фаз",
-				"pt": "Lançamento principal: Modo AI com carregamento inteligente da bateria, análise de consumo histórico, suporte a vários dispositivos, dados de preços, detecção de fase barata",
-				"nl": "Grote release: AI-modus met intelligente batterij opladen, historische verbruiksanalyse, multi-device ondersteuning, prijsgegevens, goedkope fase detectie",
-				"fr": "Version majeure: Mode IA avec charge intelligente de la batterie, analyse de consommation historique, prise en charge multi-appareils, données de tarification, détection de phase bon marché",
-				"it": "Versione principale: Modalità AI con ricarica intelligente della batteria, analisi del consumo storico, supporto multi-dispositivo, dati sui prezzi, rilevamento fase economica",
-				"es": "Lanzamiento principal: Modo AI con carga inteligente de batería, análisis de consumo histórico, soporte multidispositivo, datos de precios, detección de fase barata",
-				"pl": "Główne wydanie: Tryb AI z inteligentnym ładowaniem akumulatora, analiza historycznego zużycia, obsługa wielu urządzeń, dane cenowe, wykrywanie taniej fazy",
-				"uk": "Основний випуск: режим ШІ з інтелектуальною зарядкою акумулятора, аналіз історичного споживання, підтримка кількох пристроїв, цінові дані, виявлення дешевої фази",
-				"zh-cn": "主要版本：具有智能电池充电、历史消耗分析、多设备支持、定价数据、廉价阶段检测的 AI 模式"
-			},
-			"0.0.6": {
-				"en": "chai-as-promised update",
-				"de": "chai-as-promised update",
-				"ru": "обновление chai-as-promised",
-				"pt": "atualização chai as-promised",
-				"nl": "chai-as-promised update",
-				"fr": "mise à jour prévue",
-				"it": "aggiornamento",
-				"es": "chai-as-promised update",
-				"pl": "chai- as- obiecana aktualizacja",
-				"uk": "chai-as-promized оновлення",
-				"zh-cn": "已承诺更新"
-			},
-			"0.0.5": {
-				"en": "NPM Package updates\nWorkflow in GIT",
-				"de": "NPM Paket-Updates\nWorkflow in GIT",
-				"ru": "НПМ Обновления пакетов\nРабочий процесс в GIT",
-				"pt": "NPM Atualizações do pacote\nFluxo de trabalho no GIT",
-				"nl": "NPM Pakketupdates\nWerkstroom in GIT",
-				"fr": "NPM Mises à jour du paquet\nFlux de travail en GIT",
-				"it": "NPM Aggiornamenti del pacchetto\nFlusso di lavoro in GIT",
-				"es": "NPM Actualizaciones del paquete\nFlujo de trabajo en GIT",
-				"pl": "NPM Aktualizacja opakowania\nPrzepływ pracy w GIT",
-				"uk": "ПМ Оновлення пакета\nРобочий потік в GIT",
-				"zh-cn": "国家预防机制 软件包更新\nGIT中的工作流量"
-			},
-			"0.0.4": {
-				"en": "First NPM Release",
-				"de": "Erste NPM ",
-				"ru": "Первый NPM Выпуск",
-				"pt": "Primeiro NPM Lançamento",
-				"nl": "Eerste NPM Loslaten",
-				"fr": "Première NPM Libération",
-				"it": "Primo NPM Comunicato",
-				"es": "First NPM Liberación",
-				"pl": "Pierwszy NPM Zwolnienie",
-				"uk": "Перший НПМ Релізи",
-				"zh-cn": "第一个国家预防机制 发布"
-			},
-			"0.0.3": {
-				"en": "<!--\n\tPlaceholder for the next version (at the beginning of the line):\n\t### **WORK IN PROGRESS**\n-->",
-				"de": "<!--\nPlatzhalter für die nächste Version (am Anfang der Linie):\n**WORK IN PROGRESS**\n-->",
-				"ru": "<!--\nЗаполнитель для следующей версии (в начале строки):\n###*РАБОТА В ПРОГРЕСЕ**\n-->",
-				"pt": "<!--\nPlaceholder para a próxima versão (no início da linha):\n# # # TRABALHO EM PROGRESSO #\n-->",
-				"nl": "<!--\nPlaatshouder voor de volgende versie (aan het begin van de regel):\nWORK IN PROGRESS\n-->",
-				"fr": "<!--\nPlaceholder pour la prochaine version (au début de la ligne):\n### **WORK IN PROGRESS**\n-->",
-				"it": "<!--\nSegnaposto per la prossima versione (all'inizio della linea):\n######WORK IN PROGRESS #\n-->",
-				"es": "<!--\nTitular para la próxima versión (al principio de la línea):\n#### **WORK IN PROGRESS**\n-->",
-				"pl": "<!--\nUchwyt do następnej wersji (na początku wiersza):\n** * WORK IN PROGRESS **\n-->",
-				"uk": "<!--\nМісцевласника для наступної версії (на початку лінії):\n###**\n-->",
-				"zh-cn": "<!--\n下一个版本(行首)的占位符 :\n** 工作进展**\n-->"
-			},
-			"0.0.2": {
-				"en": "initial release",
-				"de": "erstausstrahlung",
-				"ru": "первоначальное освобождение",
-				"pt": "lançamento inicial",
-				"nl": "eerste release",
-				"fr": "libération initiale",
-				"it": "rilascio iniziale",
-				"es": "liberación inicial",
-				"pl": "początkowe zwolnienie",
-				"uk": "початковий реліз",
-				"zh-cn": "初步释放"
-			},
-			"0.0.1": {
-				"en": "initial release",
-				"de": "Erstveröffentlichung",
-				"ru": "Начальная версия",
-				"pt": "lançamento inicial",
-				"nl": "Eerste uitgave",
-				"fr": "Première version",
-				"it": "Versione iniziale",
-				"es": "Versión inicial",
-				"pl": "Pierwsze wydanie",
-				"uk": "Початкова версія",
-				"zh-cn": "首次出版"
-			}
-		},
-		"titleLang": {
-			"en": "Calamari",
-			"de": "Calamari",
-			"ru": "Кальмары",
-			"pt": "Calamari",
-			"nl": "Calamares",
-			"fr": "Calamars",
-			"it": "Calamari",
-			"es": "Calamares",
-			"pl": "Calamari",
-			"uk": "Кальмари",
-			"zh-cn": "鱿鱼"
-		},
-		"desc": {
-			"en": "Octopus DE API",
-			"de": "Octopus de api",
-			"ru": "Octopus de Api",
-			"pt": "Octopus de API",
-			"nl": "Octopus de api",
-			"fr": "Octopus de API",
-			"it": "Octopus de API",
-			"es": "Octopus de api",
-			"pl": "Octopus de API",
-			"uk": "Восьминога де API",
-			"zh-cn": "章鱼API"
-		},
-		"authors": ["huepfman <trammer@iebl.de>"],
-		"keywords": ["octopus", "api"],
-		"licenseInformation": {
-			"type": "free",
-			"license": "MIT"
-		},
-		"platform": "Javascript/Node.js",
-		"icon": "calamari.png",
-		"enabled": false,
-		"extIcon": "https://raw.githubusercontent.com/iebl/ioBroker.calamari/master/admin/calamari.png",
-		"readme": "https://github.com/iebl/ioBroker.calamari/blob/master/README.md",
-		"loglevel": "info",
-		"tier": 3,
-		"mode": "daemon",
-		"type": "energy",
-		"compact": true,
-		"connectionType": "cloud",
-		"dataSource": "poll",
-		"adminUI": {
-			"config": "json"
-		},
-		"dependencies": [
-			{
-				"js-controller": ">=6.0.11"
-			}
-		],
-		"globalDependencies": [
-			{
-				"admin": ">=7.4.10"
-			}
-		]
-	},
-	"native": {
-		"server": "https://api.oeg-kraken.energy/v1/graphql/",
-		"email": "",
-		"password": "",
-		"account": "",
-		"pollInterval": 60,
-		"enableChargingPreferences": false,
-		"weekdayTargetSoc": 80,
-		"weekendTargetSoc": 90,
-		"weekdayTargetTime": "07:00",
-		"weekendTargetTime": "09:00",
-		"enableAiMode": false,
-		"brightskyInstance": "brightsky.0",
-		"claudeApiKey": "",
-		"claudeModel": "claude-3-5-sonnet-20241022",
-		"pvArray1Enabled": true,
-		"pvArray1Power": 3,
-		"pvArray1Orientation": "E",
-		"pvArray1Tilt": 0,
-		"pvArray2Enabled": true,
-		"pvArray2Power": 4.2,
-		"pvArray2Orientation": "S",
-		"pvArray2Tilt": 52,
-		"pvArray3Enabled": true,
-		"pvArray3Power": 1.6,
-		"pvArray3Orientation": "W",
-		"pvArray3Tilt": 0,
-		"batteryCapacity": 10,
-		"batteryMinSoc": 20,
-		"batteryMaxChargePower": 5,
-		"evccInstance": "evcc.0",
-		"enableHistoryAnalysis": true,
-		"historyInstance": "sql.0",
-		"evccPowerState": "evcc.0.status.homePower",
-		"historyAnalysisDays": 7,
-		"aiDecisionTime": "17:30",
-		"aiConsiderDays": 2
-	},
-	"objects": [],
-	"instanceObjects": [
-		{
-			"_id": "info.connection",
-			"type": "state",
-			"common": {
-				"role": "indicator.connected",
-				"name": "If communication with adapter works",
-				"type": "boolean",
-				"read": true,
-				"write": false,
-				"def": false
-			},
-			"native": {}
-		}
-	],
-	"protectedNative": ["password", "claudeApiKey"],
-	"encryptedNative": ["password", "claudeApiKey"]
+  "common": {
+    "name": "calamari",
+    "version": "1.1.0",
+    "news": {
+      "1.1.0": {
+        "en": "Integrate brightsky and evcc ioBroker adapters for AI Mode\nReplace external weather APIs with brightsky adapter (DWD weather data)\nReplace MQTT with direct evcc adapter integration\nEnhance PV forecast with actual solar irradiation data from brightsky\nImprove consumption analysis using History adapter\nAdd comprehensive test scripts for development and validation",
+        "de": "Integrieren Sie Brightsky und evcc ioBroker Adapter für KI-Modus\nErsetzen Sie externe Wetter-APIs mit Brightsky Adapter (DWD Wetterdaten)\nMQTT ersetzen mit direkter evcc Adapterintegration\nVerbessern Sie die PV-Vorhersage mit aktuellen Solar-Bestrahlungsdaten von Brightsky\nVerbessern Sie die Verbrauchsanalyse mithilfe von History Adapter\nFügen Sie umfassende Testskripte für Entwicklung und Validierung hinzu",
+        "ru": "Интеграция адаптеров brightsky и evcc ioBroker для AI Mode\nЗаменить внешние погодные API на яркий адаптер (данные о погоде DWD)\nЗаменить MQTT с прямой интеграцией адаптера evcc\nУлучшить прогноз PV с фактическими данными солнечного облучения от яркого\nУлучшение анализа потребления с помощью адаптера History\nДобавить всесторонние сценарии тестирования для разработки и проверки",
+        "pt": "Integre adaptadores de ioBroker para modo IA e evcc\nSubstituir APIs meteorológicas externas por adaptador brilhante (dados meteorológicos DWD)\nSubstituir o MQTT por integração direta do adaptador evcc\nMelhorar a previsão fotovoltaica com dados reais de irradiação solar de brightsky\nMelhore a análise de consumo usando o adaptador Histórico\nAdicione scripts de teste abrangentes para desenvolvimento e validação",
+        "nl": "Integreer heldere en evcc ioBroker adapters voor AI-modus\nVervang externe weer API's door heldere adapter (DWD weersgegevens)\nMQTT vervangen door directe evcc-adapterintegratie\nVerbeter de PV-voorspelling met actuele zonnestralingsgegevens van helderder\nVerbeter de verbruiksanalyse met behulp van Geschiedenisadapter\nVoeg uitgebreide testscripts voor ontwikkeling en validatie toe",
+        "fr": "Intégrer les adaptateurs brightsky et evcc ioBroker pour le mode AI\nRemplacer les API météorologiques externes par un adaptateur brightsky (données météorologiques DWD)\nRemplacer MQTT par l'intégration directe de l'adaptateur evcc\nAméliorer les prévisions PV avec les données réelles d'irradiation solaire de brightsky\nAméliorer l'analyse de la consommation en utilisant l'adaptateur History\nAjouter des scripts de test complets pour le développement et la validation",
+        "it": "Integrare gli adattatori ioBroker e Brightsky e evcc per la modalità AI\nSostituire le API meteorologiche esterne con l'adattatore Brightsky (DWD dati meteo)\nSostituisci MQTT con l'integrazione diretta dell'adattatore evcc\nMigliorare le previsioni fotovoltaiche con dati di irradiazione solare reali da Brightsky\nMigliora l'analisi dei consumi utilizzando l'adattato di storia\nAggiungere script di test completi per lo sviluppo e la validazione",
+        "es": "Integrar adaptadores brillantes y evcc ioBroker para modo AI\nReemplazar API de clima externo con adaptador de brillo (Datos meteorológicos DWD)\nReemplazar MQTT con integración directa del adaptador evcc\nMejorar el pronóstico PV con datos reales de irradiación solar de Brightsky\nMejorar el análisis de consumo utilizando adaptador de historia\nAñadir scripts de prueba completos para el desarrollo y validación",
+        "pl": "Zintegrować adaptery Brightsky i evcc jOBroker dla trybu AI\nZastąp zewnętrzne API pogodowe adapterem Brightsky (dane pogodowe DWD)\nZastąp MQTT bezpośrednim łącznikiem evcc\nZwiększenie prognozy fotowoltaicznej z rzeczywistymi danymi o promieniowaniu słonecznym z Brightsky\nPoprawa analizy zużycia za pomocą adaptera Historia\nDodawanie kompleksowych skryptów testowych do rozwoju i walidacji",
+        "uk": "Інтегрувати яскраві та вихрові адаптери для AI Mode\nЗамініть зовнішні погодні API з яскравим адаптером (DWD)\nЗаміна MQTT з безпосередною інтеграцією адаптера evcc\nПідвищення прогнозу ПВ з фактичними даними про опромінення сонячного випромінювання від яскравого\nПоліпшити аналіз споживання за допомогою історичного адаптера\nДодати вичерпні сценарії тестування для розробки та перевірки",
+        "zh-cn": "为 AI 模式整合亮天空和 evcc ioBroker 适配器\n将外部天气 API 替换为亮斯基适配器( DWD 天气数据)\n将 MQTT 替换为直接 evcc 适配器集成\n利用来自亮天空的实际太阳辐照数据加强光电预报\n使用历史适配器改进消费分析\n添加综合测试脚本以供开发和验证"
+      },
+      "1.0.0": {
+        "en": "Major release: AI Mode with intelligent battery charging, historical consumption analysis, multi-device support, pricing data, cheap phase detection",
+        "de": "Major Release: KI-Modus mit intelligenter Batterieladung, historische Verbrauchsanalyse, Multi-Device-Unterstützung, Preisdaten, Günstigphasen-Erkennung",
+        "ru": "Основной выпуск: режим ИИ с интеллектуальной зарядкой аккумулятора, анализ исторического потребления, поддержка нескольких устройств, данные о ценах, обнаружение дешевых фаз",
+        "pt": "Lançamento principal: Modo AI com carregamento inteligente da bateria, análise de consumo histórico, suporte a vários dispositivos, dados de preços, detecção de fase barata",
+        "nl": "Grote release: AI-modus met intelligente batterij opladen, historische verbruiksanalyse, multi-device ondersteuning, prijsgegevens, goedkope fase detectie",
+        "fr": "Version majeure: Mode IA avec charge intelligente de la batterie, analyse de consommation historique, prise en charge multi-appareils, données de tarification, détection de phase bon marché",
+        "it": "Versione principale: Modalità AI con ricarica intelligente della batteria, analisi del consumo storico, supporto multi-dispositivo, dati sui prezzi, rilevamento fase economica",
+        "es": "Lanzamiento principal: Modo AI con carga inteligente de batería, análisis de consumo histórico, soporte multidispositivo, datos de precios, detección de fase barata",
+        "pl": "Główne wydanie: Tryb AI z inteligentnym ładowaniem akumulatora, analiza historycznego zużycia, obsługa wielu urządzeń, dane cenowe, wykrywanie taniej fazy",
+        "uk": "Основний випуск: режим ШІ з інтелектуальною зарядкою акумулятора, аналіз історичного споживання, підтримка кількох пристроїв, цінові дані, виявлення дешевої фази",
+        "zh-cn": "主要版本：具有智能电池充电、历史消耗分析、多设备支持、定价数据、廉价阶段检测的 AI 模式"
+      },
+      "0.0.6": {
+        "en": "chai-as-promised update",
+        "de": "chai-as-promised update",
+        "ru": "обновление chai-as-promised",
+        "pt": "atualização chai as-promised",
+        "nl": "chai-as-promised update",
+        "fr": "mise à jour prévue",
+        "it": "aggiornamento",
+        "es": "chai-as-promised update",
+        "pl": "chai- as- obiecana aktualizacja",
+        "uk": "chai-as-promized оновлення",
+        "zh-cn": "已承诺更新"
+      },
+      "0.0.5": {
+        "en": "NPM Package updates\nWorkflow in GIT",
+        "de": "NPM Paket-Updates\nWorkflow in GIT",
+        "ru": "НПМ Обновления пакетов\nРабочий процесс в GIT",
+        "pt": "NPM Atualizações do pacote\nFluxo de trabalho no GIT",
+        "nl": "NPM Pakketupdates\nWerkstroom in GIT",
+        "fr": "NPM Mises à jour du paquet\nFlux de travail en GIT",
+        "it": "NPM Aggiornamenti del pacchetto\nFlusso di lavoro in GIT",
+        "es": "NPM Actualizaciones del paquete\nFlujo de trabajo en GIT",
+        "pl": "NPM Aktualizacja opakowania\nPrzepływ pracy w GIT",
+        "uk": "ПМ Оновлення пакета\nРобочий потік в GIT",
+        "zh-cn": "国家预防机制 软件包更新\nGIT中的工作流量"
+      },
+      "0.0.4": {
+        "en": "First NPM Release",
+        "de": "Erste NPM ",
+        "ru": "Первый NPM Выпуск",
+        "pt": "Primeiro NPM Lançamento",
+        "nl": "Eerste NPM Loslaten",
+        "fr": "Première NPM Libération",
+        "it": "Primo NPM Comunicato",
+        "es": "First NPM Liberación",
+        "pl": "Pierwszy NPM Zwolnienie",
+        "uk": "Перший НПМ Релізи",
+        "zh-cn": "第一个国家预防机制 发布"
+      },
+      "0.0.3": {
+        "en": "<!--\n\tPlaceholder for the next version (at the beginning of the line):\n\t### **WORK IN PROGRESS**\n-->",
+        "de": "<!--\nPlatzhalter für die nächste Version (am Anfang der Linie):\n**WORK IN PROGRESS**\n-->",
+        "ru": "<!--\nЗаполнитель для следующей версии (в начале строки):\n###*РАБОТА В ПРОГРЕСЕ**\n-->",
+        "pt": "<!--\nPlaceholder para a próxima versão (no início da linha):\n# # # TRABALHO EM PROGRESSO #\n-->",
+        "nl": "<!--\nPlaatshouder voor de volgende versie (aan het begin van de regel):\nWORK IN PROGRESS\n-->",
+        "fr": "<!--\nPlaceholder pour la prochaine version (au début de la ligne):\n### **WORK IN PROGRESS**\n-->",
+        "it": "<!--\nSegnaposto per la prossima versione (all'inizio della linea):\n######WORK IN PROGRESS #\n-->",
+        "es": "<!--\nTitular para la próxima versión (al principio de la línea):\n#### **WORK IN PROGRESS**\n-->",
+        "pl": "<!--\nUchwyt do następnej wersji (na początku wiersza):\n** * WORK IN PROGRESS **\n-->",
+        "uk": "<!--\nМісцевласника для наступної версії (на початку лінії):\n###**\n-->",
+        "zh-cn": "<!--\n下一个版本(行首)的占位符 :\n** 工作进展**\n-->"
+      },
+      "0.0.2": {
+        "en": "initial release",
+        "de": "erstausstrahlung",
+        "ru": "первоначальное освобождение",
+        "pt": "lançamento inicial",
+        "nl": "eerste release",
+        "fr": "libération initiale",
+        "it": "rilascio iniziale",
+        "es": "liberación inicial",
+        "pl": "początkowe zwolnienie",
+        "uk": "початковий реліз",
+        "zh-cn": "初步释放"
+      }
+    },
+    "titleLang": {
+      "en": "Calamari",
+      "de": "Calamari",
+      "ru": "Кальмары",
+      "pt": "Calamari",
+      "nl": "Calamares",
+      "fr": "Calamars",
+      "it": "Calamari",
+      "es": "Calamares",
+      "pl": "Calamari",
+      "uk": "Кальмари",
+      "zh-cn": "鱿鱼"
+    },
+    "desc": {
+      "en": "Octopus DE API",
+      "de": "Octopus de api",
+      "ru": "Octopus de Api",
+      "pt": "Octopus de API",
+      "nl": "Octopus de api",
+      "fr": "Octopus de API",
+      "it": "Octopus de API",
+      "es": "Octopus de api",
+      "pl": "Octopus de API",
+      "uk": "Восьминога де API",
+      "zh-cn": "章鱼API"
+    },
+    "authors": [
+      "huepfman <trammer@iebl.de>"
+    ],
+    "keywords": [
+      "octopus",
+      "api"
+    ],
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
+    "platform": "Javascript/Node.js",
+    "icon": "calamari.png",
+    "enabled": false,
+    "extIcon": "https://raw.githubusercontent.com/iebl/ioBroker.calamari/master/admin/calamari.png",
+    "readme": "https://github.com/iebl/ioBroker.calamari/blob/master/README.md",
+    "loglevel": "info",
+    "tier": 3,
+    "mode": "daemon",
+    "type": "energy",
+    "compact": true,
+    "connectionType": "cloud",
+    "dataSource": "poll",
+    "adminUI": {
+      "config": "json"
+    },
+    "dependencies": [
+      {
+        "js-controller": ">=6.0.11"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=7.4.10"
+      }
+    ]
+  },
+  "native": {
+    "server": "https://api.oeg-kraken.energy/v1/graphql/",
+    "email": "",
+    "password": "",
+    "account": "",
+    "pollInterval": 60,
+    "enableChargingPreferences": false,
+    "weekdayTargetSoc": 80,
+    "weekendTargetSoc": 90,
+    "weekdayTargetTime": "07:00",
+    "weekendTargetTime": "09:00",
+    "enableAiMode": false,
+    "brightskyInstance": "brightsky.0",
+    "claudeApiKey": "",
+    "claudeModel": "claude-3-5-sonnet-20241022",
+    "pvArray1Enabled": true,
+    "pvArray1Power": 3,
+    "pvArray1Orientation": "E",
+    "pvArray1Tilt": 0,
+    "pvArray2Enabled": true,
+    "pvArray2Power": 4.2,
+    "pvArray2Orientation": "S",
+    "pvArray2Tilt": 52,
+    "pvArray3Enabled": true,
+    "pvArray3Power": 1.6,
+    "pvArray3Orientation": "W",
+    "pvArray3Tilt": 0,
+    "batteryCapacity": 10,
+    "batteryMinSoc": 20,
+    "batteryMaxChargePower": 5,
+    "evccInstance": "evcc.0",
+    "enableHistoryAnalysis": true,
+    "historyInstance": "sql.0",
+    "evccPowerState": "evcc.0.status.homePower",
+    "historyAnalysisDays": 7,
+    "aiDecisionTime": "17:30",
+    "aiConsiderDays": 2
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "If communication with adapter works",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ],
+  "protectedNative": [
+    "password",
+    "claudeApiKey"
+  ],
+  "encryptedNative": [
+    "password",
+    "claudeApiKey"
+  ]
 }
