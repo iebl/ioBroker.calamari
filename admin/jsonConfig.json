@@ -387,21 +387,18 @@
 			"newLine": true,
 			"hidden": "!data.enableAiMode"
 		},
-		"aiDecisionTime": {
+		"aiDecisionTimes": {
 			"type": "text",
-			"label": "Daily Decision Time (HH:MM)",
-			"help": "Time when AI makes daily charging decision (after 17:00 when dispatches are available)",
-			"default": "17:30",
+			"label": "Decision Times (comma-separated HH:MM)",
+			"help": "Multiple decision times per day using brightsky's 13h rolling forecast. Example: 06:00,17:30 (morning & evening). More decisions = more accurate but higher API costs.",
+			"default": "06:00,17:30",
 			"newLine": true,
 			"hidden": "!data.enableAiMode"
 		},
-		"aiConsiderDays": {
-			"type": "number",
-			"min": 1,
-			"max": 7,
-			"label": "Forecast Days",
-			"help": "Number of days to consider in forecast",
-			"default": 2,
+		"_aiDecisionNote": {
+			"type": "staticText",
+			"text": "💡 Multiple decisions recommended: brightsky provides only 13h forecast. Run decisions every 8-12h for optimal coverage (e.g., morning 06:00 and evening 17:30).",
+			"newLine": true,
 			"hidden": "!data.enableAiMode"
 		}
 	}
