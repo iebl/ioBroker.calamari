@@ -42,6 +42,7 @@ After starting the Adapter there will be a Datapoints with all Informations from
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
 
 ### 0.0.6 (2025-05-18)
 
