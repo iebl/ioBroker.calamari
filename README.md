@@ -44,6 +44,13 @@ After starting the Adapter there will be a Datapoints with all Informations from
 -->
 ### **WORK IN PROGRESS**
 
+* (huepfman) Integrate brightsky and evcc ioBroker adapters for AI Mode
+* (huepfman) Replace external weather APIs with brightsky adapter (DWD weather data)
+* (huepfman) Replace MQTT with direct evcc adapter integration
+* (huepfman) Enhance PV forecast with actual solar irradiation data from brightsky
+* (huepfman) Improve consumption analysis using History adapter
+* (huepfman) Add comprehensive test scripts for development and validation
+
 ### 0.0.6 (2025-05-18)
 
 chai-as-promised update
