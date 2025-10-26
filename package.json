@@ -24,8 +24,7 @@
     "@anthropic-ai/sdk": "^0.32.1",
     "@iobroker/adapter-core": "^3.2.3",
     "axios": "^1.9.0",
-    "jsonwebtoken": "^9.0.2",
-    "mqtt": "^5.11.1"
+    "jsonwebtoken": "^9.0.2"
   },
   "devDependencies": {
     "@alcalzone/release-script": "^3.8.0",
@@ -71,6 +70,10 @@
     "test:package": "mocha test/package --exit",
     "test:integration": "mocha test/integration --exit",
     "test": "npm run test:js && npm run test:package",
+    "test:consumption": "node test-consumption-analyzer.js",
+    "test:history": "node test-history-direct.js",
+    "demo:ai": "node test-ai-mode-demo.js",
+    "dev": "npx dev-server",
     "check": "tsc --noEmit -p tsconfig.check.json",
     "lint": "eslint .",
     "translate": "translate-adapter",

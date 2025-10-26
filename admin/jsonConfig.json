@@ -120,43 +120,19 @@
 			"default": false,
 			"newLine": true
 		},
-		"_weatherApi": {
+		"_brightskyAdapter": {
 			"type": "header",
-			"text": "Weather API Settings",
+			"text": "Weather Forecast (brightsky - Deutscher Wetterdienst)",
 			"size": 5,
 			"newLine": true,
 			"hidden": "!data.enableAiMode"
 		},
-		"weatherApiProvider": {
-			"type": "select",
-			"label": "Weather API Provider",
-			"options": [
-				{"label": "OpenWeatherMap", "value": "openweathermap"},
-				{"label": "WeatherAPI.com", "value": "weatherapi"},
-				{"label": "Tomorrow.io", "value": "tomorrow"}
-			],
-			"default": "openweathermap",
-			"newLine": true,
-			"hidden": "!data.enableAiMode"
-		},
-		"weatherApiKey": {
+		"brightskyInstance": {
 			"type": "text",
-			"label": "Weather API Key",
-			"help": "API key for weather forecast service",
+			"label": "brightsky Adapter Instance",
+			"help": "Instance of the brightsky adapter (e.g., brightsky.0). Reads hourly forecast data including temperature, cloud coverage, precipitation, wind speed, solar irradiation, and sunshine duration from Deutscher Wetterdienst (DWD).",
+			"default": "brightsky.0",
 			"newLine": true,
-			"hidden": "!data.enableAiMode"
-		},
-		"locationLat": {
-			"type": "number",
-			"label": "Latitude",
-			"help": "Latitude of your location (e.g., 51.1657)",
-			"newLine": true,
-			"hidden": "!data.enableAiMode"
-		},
-		"locationLon": {
-			"type": "number",
-			"label": "Longitude",
-			"help": "Longitude of your location (e.g., 10.4515)",
 			"hidden": "!data.enableAiMode"
 		},
 		"_claudeApi": {
@@ -177,11 +153,16 @@
 			"type": "select",
 			"label": "Claude Model",
 			"options": [
-				{"label": "Claude 3.5 Sonnet (Recommended)", "value": "claude-3-5-sonnet-20241022"},
-				{"label": "Claude 3.5 Haiku (Fast & Cheap)", "value": "claude-3-5-haiku-20241022"},
-				{"label": "Claude 3 Opus (Most Capable)", "value": "claude-3-opus-20240229"}
+				{"label": "Sonnet (Recommended - Balanced Performance)", "value": "sonnet"},
+				{"label": "Haiku (Fast & Economical)", "value": "haiku"}
 			],
-			"default": "claude-3-5-sonnet-20241022",
+			"default": "sonnet",
+			"hidden": "!data.enableAiMode"
+		},
+		"_claudeApiHelp": {
+			"type": "staticText",
+			"text": "💡 Tipp: Nach dem Speichern der Konfiguration wird der API Key automatisch beim nächsten AI-Entscheidungs-Lauf getestet. Prüfe die Logs für Erfolgsmeldungen oder Fehler.",
+			"newLine": true,
 			"hidden": "!data.enableAiMode"
 		},
 		"_pvConfiguration": {
@@ -345,49 +326,18 @@
 		},
 		"_evccIntegration": {
 			"type": "header",
-			"text": "EVCC MQTT Integration",
+			"text": "EVCC Adapter Integration",
 			"size": 5,
 			"newLine": true,
 			"hidden": "!data.enableAiMode"
 		},
-		"mqttEnabled": {
-			"type": "checkbox",
-			"label": "Enable MQTT Connection",
-			"default": false,
+		"evccInstance": {
+			"type": "text",
+			"label": "EVCC Adapter Instance",
+			"help": "Instance of the evcc adapter (e.g., evcc.0)",
+			"default": "evcc.0",
 			"newLine": true,
 			"hidden": "!data.enableAiMode"
-		},
-		"mqttHost": {
-			"type": "text",
-			"label": "MQTT Broker Host",
-			"default": "localhost",
-			"newLine": true,
-			"hidden": "!data.enableAiMode || !data.mqttEnabled"
-		},
-		"mqttPort": {
-			"type": "number",
-			"label": "MQTT Broker Port",
-			"default": 1883,
-			"hidden": "!data.enableAiMode || !data.mqttEnabled"
-		},
-		"mqttUsername": {
-			"type": "text",
-			"label": "MQTT Username (optional)",
-			"newLine": true,
-			"hidden": "!data.enableAiMode || !data.mqttEnabled"
-		},
-		"mqttPassword": {
-			"type": "password",
-			"label": "MQTT Password (optional)",
-			"hidden": "!data.enableAiMode || !data.mqttEnabled"
-		},
-		"evccBaseTopic": {
-			"type": "text",
-			"label": "EVCC Base Topic",
-			"help": "Base MQTT topic for EVCC (e.g., evcc)",
-			"default": "evcc",
-			"newLine": true,
-			"hidden": "!data.enableAiMode || !data.mqttEnabled"
 		},
 		"_historyAnalysis": {
 			"type": "header",
@@ -407,16 +357,17 @@
 		"historyInstance": {
 			"type": "text",
 			"label": "History Adapter Instance",
-			"help": "Instance name of your History adapter (e.g., history.0, influxdb.0, sql.0)",
-			"default": "history.0",
+			"help": "Instance name of your History adapter (e.g., sql.0, history.0, influxdb.0)",
+			"default": "sql.0",
 			"newLine": true,
 			"hidden": "!data.enableAiMode || !data.enableHistoryAnalysis"
 		},
 		"evccPowerState": {
 			"type": "text",
 			"label": "EVCC Home Power State",
-			"help": "State path for home power consumption (e.g., evcc.0.site.homePower)",
-			"default": "evcc.0.site.homePower",
+			"help": "State path for home power consumption (e.g., evcc.0.status.homePower)",
+			"default": "evcc.0.status.homePower",
+			"newLine": true,
 			"hidden": "!data.enableAiMode || !data.enableHistoryAnalysis"
 		},
 		"historyAnalysisDays": {

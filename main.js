@@ -25,7 +25,7 @@ class Calamari extends utils.Adapter {
 		this.on("ready", this.onReady.bind(this));
 		this.on("stateChange", this.onStateChange.bind(this));
 		// this.on("objectChange", this.onObjectChange.bind(this));
-		// this.on("message", this.onMessage.bind(this));
+		this.on("message", this.onMessage.bind(this));
 		this.on("unload", this.onUnload.bind(this));
 
 		// Instanz der OctopusGermany-Klasse erstellen
@@ -123,6 +123,23 @@ class Calamari extends utils.Adapter {
 					this.aiEngine = new AIDecisionEngine(this, this.config);
 					await this.aiEngine.initialize();
 					this.log.info("AI Decision Engine initialized successfully");
+
+					// Create trigger state for manual AI decision
+					await this.setObjectNotExistsAsync("aiMode.triggerDecision", {
+						type: "state",
+						common: {
+							name: "Trigger AI Decision (set to true)",
+							type: "boolean",
+							role: "button",
+							read: true,
+							write: true,
+						},
+						native: {},
+					});
+					await this.setStateAsync("aiMode.triggerDecision", false, true);
+
+					// Subscribe to trigger state
+					this.subscribeStates("aiMode.triggerDecision");
 				} catch (error) {
 					this.log.error(`Failed to initialize AI Decision Engine: ${error.message}`);
 					this.log.warn("Continuing without AI Mode");
@@ -496,7 +513,7 @@ class Calamari extends utils.Adapter {
 												native: {},
 											});
 											await this.setStateAsync(`${ratePath}.grossRate`, {
-												val: rateInfo.latestGrossUnitRateCentsPerKwh,
+												val: parseFloat(rateInfo.latestGrossUnitRateCentsPerKwh),
 												ack: true,
 											});
 										}
@@ -515,7 +532,7 @@ class Calamari extends utils.Adapter {
 												native: {},
 											});
 											await this.setStateAsync(`${ratePath}.netRate`, {
-												val: rateInfo.netUnitRateCentsPerKwh,
+												val: parseFloat(rateInfo.netUnitRateCentsPerKwh),
 												ack: true,
 											});
 										}
@@ -560,7 +577,7 @@ class Calamari extends utils.Adapter {
 													native: {},
 												});
 												await this.setStateAsync(`${timeSlotPath}.grossRate`, {
-													val: rate.latestGrossUnitRateCentsPerKwh,
+													val: parseFloat(rate.latestGrossUnitRateCentsPerKwh),
 													ack: true,
 												});
 											}
@@ -580,7 +597,7 @@ class Calamari extends utils.Adapter {
 													native: {},
 												});
 												await this.setStateAsync(`${timeSlotPath}.netRate`, {
-													val: rate.netUnitRateCentsPerKwh,
+													val: parseFloat(rate.netUnitRateCentsPerKwh),
 													ack: true,
 												});
 											}
@@ -734,6 +751,96 @@ class Calamari extends utils.Adapter {
 	}
 
 	/**
+	 * Handle messages from admin UI
+	 * @param {ioBroker.Message} obj
+	 */
+	async onMessage(obj) {
+		if (!obj) {
+			this.log.debug('onMessage: obj is null or undefined');
+			return;
+		}
+
+		if (!obj.command) {
+			this.log.debug(`onMessage: no command in object`);
+			return;
+		}
+
+		// Ignore responses from other adapters (like history adapter responses to our sendTo calls)
+		// These have callback.ack = true and come from other adapters
+		if (obj.callback && obj.callback.ack === true) {
+			this.log.debug(`Ignoring response from ${obj.from} for command ${obj.command}`);
+			return;
+		}
+
+		this.log.debug(`Processing command: ${obj.command} from ${obj.from}`);
+
+		try {
+			switch (obj.command) {
+				case 'testClaudeConnection':
+					try {
+						this.log.info('Testing Claude AI connection from Admin UI...');
+						this.log.debug(`API Key present: ${!!obj.message?.apiKey}`);
+						this.log.debug(`Model: ${obj.message?.model}`);
+
+						// Create a temporary Claude AI client with the provided credentials
+						const { Anthropic } = require('@anthropic-ai/sdk');
+						const testClient = new Anthropic({
+							apiKey: obj.message.apiKey
+						});
+
+						const startTime = Date.now();
+						const message = await testClient.messages.create({
+							model: obj.message.model || 'claude-3-5-sonnet-20241022',
+							max_tokens: 50,
+							messages: [{
+								role: 'user',
+								content: 'Please respond with "Connection successful" if you receive this message.'
+							}]
+						});
+						const duration = Date.now() - startTime;
+
+						this.log.info(`Claude AI test successful (${duration}ms)`);
+
+						const response = {
+							success: true,
+							message: `✅ Connection successful!\n\nModel: ${obj.message.model}\nResponse time: ${duration}ms\nResponse: "${message.content[0].text}"`
+						};
+
+						this.log.debug(`Sending success response via callback`);
+						if (obj.callback) {
+							this.sendTo(obj.from, obj.command, response, obj.callback);
+						}
+						return response;
+					} catch (error) {
+						this.log.error(`Claude AI test failed: ${error.message}`);
+
+						const errorResponse = {
+							success: false,
+							message: `❌ Connection failed:\n\n${error.message}\n\nPlease check your API key and try again.`
+						};
+
+						this.log.debug(`Sending error response via callback`);
+						if (obj.callback) {
+							this.sendTo(obj.from, obj.command, errorResponse, obj.callback);
+						}
+						return errorResponse;
+					}
+
+				default:
+					this.log.warn(`Unknown command: ${obj.command}`);
+					const unknownResponse = { error: 'Unknown command' };
+					if (obj.callback) {
+						this.sendTo(obj.from, obj.command, unknownResponse, obj.callback);
+					}
+					return unknownResponse;
+			}
+		} catch (error) {
+			this.log.error(`Error in onMessage: ${error.message}`);
+			this.log.error(error.stack);
+		}
+	}
+
+	/**
 	 * Is called when adapter shuts down - callback has to be called under any circumstances!
 	 * @param {() => void} callback
 	 */
@@ -792,6 +899,26 @@ class Calamari extends utils.Adapter {
 		}
 
 		this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+
+		// Check if this is the AI trigger state
+		if (id === `${this.name}.${this.instance}.aiMode.triggerDecision` && state.val === true) {
+			this.log.info("Manual AI decision triggered by user");
+
+			if (this.aiEngine) {
+				try {
+					await this.aiEngine.makeDecision();
+					this.log.info("Manual AI decision completed successfully");
+				} catch (error) {
+					this.log.error(`Manual AI decision failed: ${error.message}`);
+				}
+			} else {
+				this.log.warn("AI Engine not initialized - enable AI Mode in configuration");
+			}
+
+			// Reset trigger state
+			await this.setStateAsync(id, false, true);
+			return;
+		}
 
 		// Check if this is a device suspension state change
 		const deviceSuspendedPattern = new RegExp(

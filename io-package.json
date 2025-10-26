@@ -165,10 +165,7 @@
 		"weekdayTargetTime": "07:00",
 		"weekendTargetTime": "09:00",
 		"enableAiMode": false,
-		"weatherApiProvider": "openweathermap",
-		"weatherApiKey": "",
-		"locationLat": 0,
-		"locationLon": 0,
+		"brightskyInstance": "brightsky.0",
 		"claudeApiKey": "",
 		"claudeModel": "claude-3-5-sonnet-20241022",
 		"pvArray1Enabled": true,
@@ -186,15 +183,10 @@
 		"batteryCapacity": 10,
 		"batteryMinSoc": 20,
 		"batteryMaxChargePower": 5,
-		"mqttEnabled": false,
-		"mqttHost": "localhost",
-		"mqttPort": 1883,
-		"mqttUsername": "",
-		"mqttPassword": "",
-		"evccBaseTopic": "evcc",
+		"evccInstance": "evcc.0",
 		"enableHistoryAnalysis": true,
-		"historyInstance": "history.0",
-		"evccPowerState": "evcc.0.site.homePower",
+		"historyInstance": "sql.0",
+		"evccPowerState": "evcc.0.status.homePower",
 		"historyAnalysisDays": 7,
 		"aiDecisionTime": "17:30",
 		"aiConsiderDays": 2
@@ -215,6 +207,6 @@
 			"native": {}
 		}
 	],
-	"protectedNative": ["password", "weatherApiKey", "claudeApiKey", "mqttPassword"],
-	"encryptedNative": ["password", "weatherApiKey", "claudeApiKey", "mqttPassword"]
+	"protectedNative": ["password", "claudeApiKey"],
+	"encryptedNative": ["password", "claudeApiKey"]
 }
