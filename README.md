@@ -44,6 +44,8 @@ After starting the Adapter there will be a Datapoints with all Informations from
 -->
 ### **WORK IN PROGRESS**
 
+### 1.1.1 (2025-10-27)
+
 * (huepfman) Fix AI Mode data gathering - missing await caused undefined context values
 * (huepfman) Fix AI Mode evcc connection - always call connect() regardless of MQTT setting
 * (huepfman) Remove MQTT dependencies - EVCCAdapter now reads directly from ioBroker states

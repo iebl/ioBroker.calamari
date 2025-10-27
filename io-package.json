@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "calamari",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "news": {
+      "1.1.1": {
+        "en": "Fix AI Mode data gathering - missing await caused undefined context values\nFix AI Mode evcc connection - always call connect() regardless of MQTT setting\nRemove MQTT dependencies - EVCCAdapter now reads directly from ioBroker states\nAdd missing state logging to help diagnose evcc data issues\nFix evcc and Octopus state paths\nImplement multiple AI decisions per day with 13h rolling forecast\nComplete brightsky state name fixes - use leading zeros",
+        "de": "Fix AI-Modus-Datenerfassung - fehlendes Warten verursachte undefinierte Kontextwerte\nFix KI Mode evcc Verbindung - immer anrufen connect() unabhängig von MQTT Einstellung\nEntfernen MQTT Abhängigkeiten - EVCCAdapter liest jetzt direkt aus ioBroker-Staaten\nHinzufügen fehlender Zustandsprotokollierung zur Diagnose von evcc-Datenproblemen\nFix evcc und Octopus Zustandspfade\nUmsetzung mehrerer KI-Entscheidungen pro Tag mit 13h Rollprognose\nKomplette Brightsky-Namensbehebungen - Verwenden Sie führende Nullen",
+        "ru": "Исправление сбора данных в режиме AI - отсутствие ожидания вызвало неопределенные значения контекста\nИсправить AI Режим evcc-соединения - всегда вызывайте соединение () независимо от настройки MQTT\nУдалите зависимости от MQTT - EVCCAdapter теперь читается непосредственно из штатов ioBroker\nДобавить недостающее состояние регистрации, чтобы помочь диагностировать проблемы с данными evcc\nИсправьте пути состояния evcc и Octopus\nРеализуйте несколько решений ИИ в день с 13-часовым прогнозом\nПолное блеклое государственное название фиксирует - используйте ведущие нули",
+        "pt": "Corrigir coleta de dados do modo AI - falta a espera causou valores de contexto indefinidos\nCorrigir IA Modo evcc connection - sempre chamar connect() independentemente da configuração MQTT\nRemover dependências do MQTT - EVCCAdapter agora lê diretamente dos estados do ioBroker\nAdicionar o registo de estado em falta para ajudar a diagnosticar problemas de dados evcc\nCorrigir os caminhos dos estados evcc e Octopus\nImplementar várias decisões de IA por dia com 13h de previsão de rolamento\nCorrigições completas do estado de brightsky - use zeros principais",
+        "nl": "Repareren AI-modus gegevens verzamelen - ontbreken wachten veroorzaakt ongedefinieerde context waarden\nRepareren AI Mode evcc verbinding - altijd aanroepen verbinding() ongeacht MQTT instelling\nVerwijderen MQTT afhankelijkheden - EVCCAdapter leest nu direct uit ioBroker staten\nOntbrekende statuslogging toevoegen om te helpen bij het diagnosticeren van evcc-gegevensproblemen\nHerstel evcc en Octopus status paden\nMeerdere AI-besluiten per dag uitvoeren met 13 uur voortschrijdende prognoses\nCompleet heldere staat naam fixes - gebruik toonaangevende nullen",
+        "fr": "Correction de la collecte de données en mode AI - manque d'attente causé des valeurs de contexte non définies\nCorrection de l'IA Mode evcc connexion - toujours appeler connect() indépendamment du réglage MQTT\nSupprimer les dépendances MQTT - EVCCadapter lit maintenant directement des états ioBroker\nAjout de l'état manquant pour aider à diagnostiquer les problèmes de données evcc\nCorrection des chemins d'état evcc et Octopus\nMettre en œuvre plusieurs décisions d'IA par jour avec des prévisions mobiles de 13h\nCorrections complètes du nom de l'état brightsky - utiliser les zéros de tête",
+        "it": "Risolvere la raccolta dei dati della modalità AI - mancante aspetta i valori di contesto non definiti\nFissare AI Connessione mode evcc - chiama sempre la connessione() indipendentemente dall'impostazione MQTT\nRimuovere le dipendenze MQTT - EVCCAdapter ora legge direttamente da stati ioBroker\nAggiungi registrazione di stato mancante per aiutare a diagnosticare i problemi di dati evcc\nFissare i percorsi statali evcc e Octopus\nImplementare più decisioni AI al giorno con 13h previsioni di rotolamento\nCorrezioni complete di nome di stato luminososky - utilizzare gli zeri iniziali",
+        "es": "Fijar la reunión de datos del modo AI - esperar causado valores de contexto indefinidos\nFix AI Modo de conexión evcc - siempre llamar a la conexión() independientemente de la configuración de MQTT\nEliminar las dependencias de MQTT - EVCCAdapter ahora lee directamente de los estados de ioBroker\nAgregar registro de estado perdido para ayudar a diagnosticar problemas de datos evcc\nFijar los caminos del estado de evcc y Octopus\nImplementar múltiples decisiones de IA al día con 13h pronóstico de rodamiento\nCompleto nombre de estado brillante - utilizar ceros líderes",
+        "pl": "Napraw zbieranie danych w trybie AI - brak oczekiwania spowodował nieokreślone wartości kontekstowe\nNapraw AI Tryb połączenia evcc - zawsze wywołaj połączenie () niezależnie od ustawienia MQTT\nUsuń zależności MQTT - EVCCAdapter odczytuje teraz bezpośrednio ze stanów jOBroker\nDodaj brak logowania stanu, aby zdiagnozować problemy z danymi evcc\nNapraw ścieżki evcc i Octopus state\nWdrożenie wielu decyzji w sprawie ptasiej grypy dziennie z prognozą toczenia 13h\nKompletne poprawki nazwy stanu Brightsky - użyj wiodących zer",
+        "uk": "Виправлення збору даних AI Mode - відсутність очікувань\nВиправлення AI Режим підключення evcc - завжди виклик підключення() незалежно від налаштування MQTT\nВидалити залежності MQTT - EVCCAP тепер читає безпосередньо від станів ioBroker\nДодайте відсутню державну реєстрацію, щоб допомогти діагностувати проблеми з даними Евк\nВиправлення evcc і Octopus державних доріжок\nВпровадження декількох рішень AI в день з прогнозом на прокат 13h\nПовні яскраві зафікси державної назви - використовуйте провідні нулі",
+        "zh-cn": "修复 AI 模式数据收集 - 缺失等待导致未定义上下文值\n修复 AI 模式 evcc 连接 - 无论 MQTT 设置如何, 总是调用连接()\n删除 MQTT 依赖性 - EVCCAdapter 现在直接从ioBroker 状态读取\n添加缺失的状态记录以帮助诊断 evcc 数据问题\n修正 evcc 和 Octopus 状态路径\n每天执行多项人工智能决定,并进行13小时滚动预测\n完全亮斯基状态名称修正 - 使用正0"
+      },
       "1.1.0": {
         "en": "Integrate brightsky and evcc ioBroker adapters for AI Mode\nReplace external weather APIs with brightsky adapter (DWD weather data)\nReplace MQTT with direct evcc adapter integration\nEnhance PV forecast with actual solar irradiation data from brightsky\nImprove consumption analysis using History adapter\nAdd comprehensive test scripts for development and validation",
         "de": "Integrieren Sie Brightsky und evcc ioBroker Adapter für KI-Modus\nErsetzen Sie externe Wetter-APIs mit Brightsky Adapter (DWD Wetterdaten)\nMQTT ersetzen mit direkter evcc Adapterintegration\nVerbessern Sie die PV-Vorhersage mit aktuellen Solar-Bestrahlungsdaten von Brightsky\nVerbessern Sie die Verbrauchsanalyse mithilfe von History Adapter\nFügen Sie umfassende Testskripte für Entwicklung und Validierung hinzu",
@@ -80,19 +93,6 @@
         "pl": "<!--\nUchwyt do następnej wersji (na początku wiersza):\n** * WORK IN PROGRESS **\n-->",
         "uk": "<!--\nМісцевласника для наступної версії (на початку лінії):\n###**\n-->",
         "zh-cn": "<!--\n下一个版本(行首)的占位符 :\n** 工作进展**\n-->"
-      },
-      "0.0.2": {
-        "en": "initial release",
-        "de": "erstausstrahlung",
-        "ru": "первоначальное освобождение",
-        "pt": "lançamento inicial",
-        "nl": "eerste release",
-        "fr": "libération initiale",
-        "it": "rilascio iniziale",
-        "es": "liberación inicial",
-        "pl": "początkowe zwolnienie",
-        "uk": "початковий реліз",
-        "zh-cn": "初步释放"
       }
     },
     "titleLang": {
