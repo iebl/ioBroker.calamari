@@ -44,6 +44,14 @@ After starting the Adapter there will be a Datapoints with all Informations from
 -->
 ### **WORK IN PROGRESS**
 
+* (huepfman) Fix AI Mode data gathering - missing await caused undefined context values
+* (huepfman) Fix AI Mode evcc connection - always call connect() regardless of MQTT setting
+* (huepfman) Remove MQTT dependencies - EVCCAdapter now reads directly from ioBroker states
+* (huepfman) Add missing state logging to help diagnose evcc data issues
+* (huepfman) Fix evcc and Octopus state paths
+* (huepfman) Implement multiple AI decisions per day with 13h rolling forecast
+* (huepfman) Complete brightsky state name fixes - use leading zeros
+
 ### 1.1.0 (2025-10-26)
 
 * (huepfman) Integrate brightsky and evcc ioBroker adapters for AI Mode
