@@ -42,6 +42,8 @@ After starting the Adapter there will be a Datapoints with all Informations from
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+### **WORK IN PROGRESS**
+
 ### 1.1.0 (2025-10-26)
 
 * (huepfman) Integrate brightsky and evcc ioBroker adapters for AI Mode
