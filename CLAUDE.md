@@ -179,16 +179,16 @@ The AI Mode feature enables intelligent battery charging decisions based on weat
   - Cloud coverage impact (up to 75% reduction at 100% cloud)
 - Returns hourly production estimates in kWh
 
-**3. EVCCClient (MQTT)**
-- Connects to evcc MQTT broker for real-time data
-- Subscribes to topics:
-  - `{baseTopic}/site/pvPower`: Current PV production
-  - `{baseTopic}/site/batteryPower`: Battery charge/discharge power
-  - `{baseTopic}/site/batterySoc`: Current battery state of charge
-  - `{baseTopic}/site/gridPower`: Grid import/export
-  - `{baseTopic}/site/homePower`: House consumption
+**3. EVCCAdapter**
+- Reads real-time data from evcc ioBroker adapter states
+- Reads from states:
+  - `evcc.X.status.pv`: Current PV production
+  - `evcc.X.status.batteryPower`: Battery charge/discharge power
+  - `evcc.X.status.batterySoc`: Current battery state of charge
+  - `evcc.X.status.grid`: Grid import/export
+  - `evcc.X.status.homePower`: House consumption
 - Provides `getData()` method for current values
-- Auto-reconnect on connection loss
+- No external MQTT broker required - uses ioBroker states directly
 
 **4. ConsumptionAnalyzer**
 - Analyzes historical consumption data from History Adapter
@@ -254,7 +254,7 @@ When AI Mode is enabled, the following states are created:
 2. **Data Gathering**:
    - Fetch weather forecast for next N days
    - Calculate PV production forecast
-   - Get current battery SoC and consumption from evcc (MQTT)
+   - Get current battery SoC and consumption from evcc adapter states
    - **Query historical consumption from History Adapter (last 7 days)**
    - **Analyze consumption patterns (hourly, daily, weekly)**
    - Retrieve cheap phases from plannedDispatches
@@ -293,8 +293,8 @@ The AI mode requires a History Adapter to analyze consumption patterns:
 
 The AI mode integrates with evcc (https://evcc.io/) for real-time energy monitoring:
 
-- evcc must be running with MQTT enabled
-- ioBroker adapter connects as MQTT client
+- evcc ioBroker adapter must be installed and running
+- Calamari adapter reads data directly from evcc adapter states
 - Data is used for:
   - Understanding current consumption patterns
   - Monitoring battery state
@@ -379,13 +379,8 @@ Daily decision (~1000 input tokens, ~200 output tokens):
 - `batteryMinSoc`: Minimum state of charge in % (default: 20)
 - `batteryMaxChargePower`: Maximum charging power in kW (default: 5)
 
-**EVCC MQTT Integration:**
-- `mqttEnabled`: Enable MQTT connection to evcc (default: false)
-- `mqttHost`: MQTT broker hostname (default: "localhost")
-- `mqttPort`: MQTT broker port (default: 1883)
-- `mqttUsername`: MQTT username (optional)
-- `mqttPassword`: MQTT password (optional, encrypted)
-- `evccBaseTopic`: Base topic for evcc MQTT messages (default: "evcc")
+**EVCC Adapter Integration:**
+- `evccInstance`: evcc adapter instance name (default: "evcc.0")
 
 **Historical Consumption Analysis:**
 - `enableHistoryAnalysis`: Enable analysis of historical consumption data (default: true)
@@ -452,9 +447,11 @@ Daily decision (~1000 input tokens, ~200 output tokens):
 - Cache is automatically invalidated after device suspension changes
 
 **AI Mode Requirements:**
-- AI Mode requires additional API keys (weather provider, Claude AI) - obtain these separately
-- AI Mode dependencies: `@anthropic-ai/sdk`, `mqtt`, `axios` (automatically installed)
+- AI Mode requires Claude AI API key - obtain from Anthropic separately
+- AI Mode dependencies: `@anthropic-ai/sdk`, `axios` (automatically installed)
 - AI Mode is completely optional and disabled by default
+- **Requires evcc ioBroker adapter to be installed and running**
+- **Requires brightsky ioBroker adapter for weather forecasts**
 - **Historical analysis requires a History Adapter (history, sql, or influxdb)**
 - **Must log evcc home power consumption with 15-minute intervals**
 - **Minimum 7 days of historical data recommended for accurate patterns**
