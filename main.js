@@ -436,7 +436,7 @@ class Calamari extends utils.Adapter {
 			if (currentPhase) {
 				const start = new Date(currentPhase.startDt);
 				const end = new Date(currentPhase.endDt);
-				const remainingMs = end - now;
+				const remainingMs = end.getTime() - now.getTime();
 				const remainingMinutes = Math.ceil(remainingMs / 60000);
 				const deltaKwh = parseFloat(currentPhase.deltaKwh || currentPhase.delta || 0);
 
@@ -461,7 +461,7 @@ class Calamari extends utils.Adapter {
 			// Update next phase states
 			if (nextPhase) {
 				const start = new Date(nextPhase.startDt);
-				const untilStartMs = start - now;
+				const untilStartMs = start.getTime() - now.getTime();
 				const minutesUntilStart = Math.ceil(untilStartMs / 60000);
 				const deltaKwh = parseFloat(nextPhase.deltaKwh || nextPhase.delta || 0);
 
@@ -972,9 +972,13 @@ class Calamari extends utils.Adapter {
 
 						this.log.info(`Claude AI test successful (${duration}ms)`);
 
+						// Extract text from content blocks (handle new SDK structure)
+						const textContent = message.content.find(block => block.type === 'text');
+						const responseText = textContent && textContent.type === 'text' ? textContent.text : 'No text response';
+
 						const response = {
 							success: true,
-							message: `✅ Connection successful!\n\nModel: ${obj.message.model}\nResponse time: ${duration}ms\nResponse: "${message.content[0].text}"`
+							message: `✅ Connection successful!\n\nModel: ${obj.message.model}\nResponse time: ${duration}ms\nResponse: "${responseText}"`
 						};
 
 						this.log.debug(`Sending success response via callback`);
