@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "calamari",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "news": {
+      "1.2.0": {
+        "en": "Add Smart Charging Monitoring feature\nMonitor if smart charging is active after configured time when vehicle SoC is low\nSend notifications via Telegram and Signal when charging is not active\nConfigurable monitoring start time and minimum SoC threshold",
+        "de": "Smart Charging Monitoring Funktion hinzufügen\nÜberwachen Sie, ob intelligentes Laden nach der konfigurierten Zeit aktiv ist, wenn Fahrzeug SoC niedrig ist\nSenden Sie Benachrichtigungen über Telegram und Signal, wenn das Laden nicht aktiv ist\nKonfigurierbare Überwachungsstartzeit und minimale SoC-Schwelle",
+        "ru": "Добавить функцию Smart Charging Monitoring\nМонитор, если смарт-зарядка активна после настроенного времени, когда SoC автомобиля низкий\nОтправка уведомлений через Telegram и Signal при неактивной зарядке\nНастраиваемое время запуска и минимальный порог SoC",
+        "pt": "Adicionar recurso Smart Charging Monitoring\nMonitore se o carregamento inteligente está ativo após o tempo configurado quando o SoC do veículo é baixo\nEnviar notificações via Telegram e Signal quando carregar não está ativo\nTempo de início de monitorização configurável e limiar mínimo de SoC",
+        "nl": "Smart Charging Monitoring functie toevoegen\nMonitor als het slimme opladen actief is na geconfigureerde tijd wanneer het voertuig SoC laag is\nNotificatieberichten verzenden via Telegram en Signaal wanneer het laden niet actief is\nConfigureerbare controle starttijd en minimale SoC-drempel",
+        "fr": "Ajouter la fonction de surveillance de charge intelligente\nSurveiller si la charge intelligente est active après le temps configuré lorsque le véhicule SoC est faible\nEnvoyer des notifications via Telegram et Signal lorsque la charge n'est pas active\nTemps de début de la surveillance configurable et seuil minimum de SoC",
+        "it": "Aggiungi funzione Smart Charging Monitoring\nMonitorare se la ricarica intelligente è attiva dopo il tempo configurato quando il veicolo SoC è basso\nInvia notifiche via Telegram e Segnale quando la ricarica non è attiva\nTempo di inizio di monitoraggio configurabile e soglia minima SoC",
+        "es": "Agregar la función de monitoreo de carga inteligente\nMonitor si la carga inteligente está activa después del tiempo configurado cuando el vehículo SoC es bajo\nEnviar notificaciones vía Telegram y Signal cuando la carga no esté activa\nTiempo de inicio de monitoreo configurable y umbral mínimo SoC",
+        "pl": "Dodaj funkcję inteligentnego monitorowania ładowania\nMonitorowanie, czy inteligentne ładowanie jest aktywne po skonfigurowanym czasie, gdy pojazd SoC jest niski\nWysyłanie powiadomień przez Telegram i sygnał, gdy ładowanie nie jest aktywne\nKonfigurowalny czas rozpoczęcia monitorowania i minimalny próg SoC",
+        "uk": "Додати функцію Smart заряджання\nМоніторинг, якщо смарт зарядка активна після налаштування часу, коли автомобіль SoC низький\nНадіслати повідомлення через Telegram і Signal при зарядці не активні\nКонфігурація часу запуску моніторингу та мінімального рівня SoC",
+        "zh-cn": "添加智能充电监视功能\n监视在车辆 SoC 低时配置时间后是否激活智能充电\n在充电不活动时通过Telegram和信号发送通知\n可配置监测起始时间和最小SoC阈值"
+      },
       "1.1.1": {
         "en": "Fix AI Mode data gathering - missing await caused undefined context values\nFix AI Mode evcc connection - always call connect() regardless of MQTT setting\nRemove MQTT dependencies - EVCCAdapter now reads directly from ioBroker states\nAdd missing state logging to help diagnose evcc data issues\nFix evcc and Octopus state paths\nImplement multiple AI decisions per day with 13h rolling forecast\nComplete brightsky state name fixes - use leading zeros",
         "de": "Fix AI-Modus-Datenerfassung - fehlendes Warten verursachte undefinierte Kontextwerte\nFix KI Mode evcc Verbindung - immer anrufen connect() unabhängig von MQTT Einstellung\nEntfernen MQTT Abhängigkeiten - EVCCAdapter liest jetzt direkt aus ioBroker-Staaten\nHinzufügen fehlender Zustandsprotokollierung zur Diagnose von evcc-Datenproblemen\nFix evcc und Octopus Zustandspfade\nUmsetzung mehrerer KI-Entscheidungen pro Tag mit 13h Rollprognose\nKomplette Brightsky-Namensbehebungen - Verwenden Sie führende Nullen",
@@ -80,19 +93,6 @@
         "pl": "Pierwszy NPM Zwolnienie",
         "uk": "Перший НПМ Релізи",
         "zh-cn": "第一个国家预防机制 发布"
-      },
-      "0.0.3": {
-        "en": "<!--\n\tPlaceholder for the next version (at the beginning of the line):\n\t### **WORK IN PROGRESS**\n-->",
-        "de": "<!--\nPlatzhalter für die nächste Version (am Anfang der Linie):\n**WORK IN PROGRESS**\n-->",
-        "ru": "<!--\nЗаполнитель для следующей версии (в начале строки):\n###*РАБОТА В ПРОГРЕСЕ**\n-->",
-        "pt": "<!--\nPlaceholder para a próxima versão (no início da linha):\n# # # TRABALHO EM PROGRESSO #\n-->",
-        "nl": "<!--\nPlaatshouder voor de volgende versie (aan het begin van de regel):\nWORK IN PROGRESS\n-->",
-        "fr": "<!--\nPlaceholder pour la prochaine version (au début de la ligne):\n### **WORK IN PROGRESS**\n-->",
-        "it": "<!--\nSegnaposto per la prossima versione (all'inizio della linea):\n######WORK IN PROGRESS #\n-->",
-        "es": "<!--\nTitular para la próxima versión (al principio de la línea):\n#### **WORK IN PROGRESS**\n-->",
-        "pl": "<!--\nUchwyt do następnej wersji (na początku wiersza):\n** * WORK IN PROGRESS **\n-->",
-        "uk": "<!--\nМісцевласника для наступної версії (на початку лінії):\n###**\n-->",
-        "zh-cn": "<!--\n下一个版本(行首)的占位符 :\n** 工作进展**\n-->"
       }
     },
     "titleLang": {
