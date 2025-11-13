@@ -194,7 +194,14 @@
     "evccPowerState": "evcc.0.status.homePower",
     "historyAnalysisDays": 7,
     "aiDecisionTime": "17:30",
-    "aiConsiderDays": 2
+    "aiConsiderDays": 2,
+    "enableChargingMonitoring": false,
+    "monitoringStartTime": "20:00",
+    "minVehicleSoc": 60,
+    "telegramInstance": "telegram.0",
+    "telegramUser": "",
+    "signalInstance": "",
+    "evccLoadpointIndex": 0
   },
   "objects": [],
   "instanceObjects": [

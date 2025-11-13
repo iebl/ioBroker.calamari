@@ -37,6 +37,10 @@ class Calamari extends utils.Adapter {
 
 		// AI Decision Engine (initialized in onReady if enabled)
 		this.aiEngine = null;
+
+		// Charging monitoring
+		this.chargingMonitoringInterval = null;
+		this.lastMonitoringNotification = null;
 	}
 
 	/**
@@ -152,6 +156,20 @@ class Calamari extends utils.Adapter {
 			this.pollInterval = setInterval(() => {
 				this.fetchDataFromAPI();
 			}, this.config.pollInterval * 1000);
+
+			// Initialize charging monitoring if enabled
+			if (this.config.enableChargingMonitoring) {
+				this.log.info("Smart Charging Monitoring is enabled");
+				// Start monitoring interval - check every 30 minutes
+				this.chargingMonitoringInterval = setInterval(() => {
+					this.checkChargingStatus();
+				}, 30 * 60 * 1000); // 30 minutes
+
+				// Initial check after 1 minute
+				setTimeout(() => {
+					this.checkChargingStatus();
+				}, 60000);
+			}
 		} else {
 			this.setState("info.connection", false, true);
 			this.log.error("Login not possible - check credentials");
@@ -751,6 +769,159 @@ class Calamari extends utils.Adapter {
 	}
 
 	/**
+	 * Send notification via Telegram and Signal
+	 * @param {string} message - The message to send
+	 */
+	async sendNotification(message) {
+		// Send via Telegram if configured
+		if (this.config.telegramInstance && this.config.telegramUser) {
+			try {
+				await this.sendToAsync(this.config.telegramInstance, {
+					user: this.config.telegramUser,
+					text: message,
+				});
+				this.log.debug(`Telegram notification sent to ${this.config.telegramUser}`);
+			} catch (error) {
+				this.log.error(`Failed to send Telegram notification: ${error.message}`);
+			}
+		}
+
+		// Send via Signal if configured
+		if (this.config.signalInstance && this.config.telegramUser) {
+			try {
+				await this.sendToAsync(this.config.signalInstance, {
+					user: this.config.telegramUser,
+					text: message,
+				});
+				this.log.debug(`Signal notification sent to ${this.config.telegramUser}`);
+			} catch (error) {
+				this.log.error(`Failed to send Signal notification: ${error.message}`);
+			}
+		}
+	}
+
+	/**
+	 * Check if current time is after configured monitoring start time
+	 * @returns {boolean} - True if monitoring should be active
+	 */
+	isMonitoringTime() {
+		const now = new Date();
+		const currentHours = now.getHours();
+		const currentMinutes = now.getMinutes();
+		const currentTimeMinutes = currentHours * 60 + currentMinutes;
+
+		// Parse monitoring start time (HH:MM)
+		const timeParts = this.config.monitoringStartTime.split(":");
+		if (timeParts.length !== 2) {
+			this.log.warn(`Invalid monitoring start time format: ${this.config.monitoringStartTime}`);
+			return false;
+		}
+
+		const startHours = parseInt(timeParts[0], 10);
+		const startMinutes = parseInt(timeParts[1], 10);
+		const startTimeMinutes = startHours * 60 + startMinutes;
+
+		return currentTimeMinutes >= startTimeMinutes;
+	}
+
+	/**
+	 * Check charging status and send notification if needed
+	 */
+	async checkChargingStatus() {
+		try {
+			// Only monitor if current time is after configured start time
+			if (!this.isMonitoringTime()) {
+				this.log.debug("Not yet monitoring time, skipping check");
+				return;
+			}
+
+			// Check if we already sent a notification today
+			const now = new Date();
+			if (this.lastMonitoringNotification) {
+				const lastNotificationDate = new Date(this.lastMonitoringNotification);
+				if (
+					lastNotificationDate.getDate() === now.getDate() &&
+					lastNotificationDate.getMonth() === now.getMonth() &&
+					lastNotificationDate.getFullYear() === now.getFullYear()
+				) {
+					this.log.debug("Already sent notification today, skipping");
+					return;
+				}
+			}
+
+			// Get vehicle SoC from evcc
+			const loadpointIndex = this.config.evccLoadpointIndex || 0;
+			const vehicleSocPath = `${this.config.evccInstance}.loadpoint.${loadpointIndex}.vehicleSoc`;
+			const vehicleSocState = await this.getForeignStateAsync(vehicleSocPath);
+
+			if (!vehicleSocState || vehicleSocState.val === null) {
+				this.log.warn(`Vehicle SoC state not found or empty: ${vehicleSocPath}`);
+				return;
+			}
+
+			const vehicleSoc = parseFloat(vehicleSocState.val);
+			this.log.debug(`Current vehicle SoC: ${vehicleSoc}%`);
+
+			// Only continue if vehicle SoC is below minimum
+			if (vehicleSoc >= this.config.minVehicleSoc) {
+				this.log.debug(`Vehicle SoC (${vehicleSoc}%) is above minimum (${this.config.minVehicleSoc}%), no action needed`);
+				return;
+			}
+
+			this.log.info(`Vehicle SoC (${vehicleSoc}%) is below minimum (${this.config.minVehicleSoc}%), checking charging status...`);
+
+			// Check evcc mode
+			const evccModePath = `${this.config.evccInstance}.loadpoint.${loadpointIndex}.mode`;
+			const evccModeState = await this.getForeignStateAsync(evccModePath);
+
+			if (!evccModeState || evccModeState.val === null) {
+				this.log.warn(`EVCC mode state not found: ${evccModePath}`);
+				return;
+			}
+
+			const evccMode = String(evccModeState.val);
+			this.log.debug(`Current EVCC mode: ${evccMode}`);
+
+			// Check calamari suspension status
+			const suspendedPath = `${this.name}.${this.instance}.devices.0.status.isSuspended`;
+			const suspendedState = await this.getStateAsync("devices.0.status.isSuspended");
+
+			let isSuspended = true;
+			if (suspendedState && suspendedState.val !== null) {
+				isSuspended = suspendedState.val === true;
+				this.log.debug(`Octopus smart charging suspended: ${isSuspended}`);
+			} else {
+				this.log.warn(`Suspension state not found: ${suspendedPath}`);
+			}
+
+			// Determine if smart charging is active
+			const isChargingActive = evccMode === "now" && !isSuspended;
+
+			if (!isChargingActive) {
+				// Send notification
+				const message =
+					`⚠️ WARNUNG: Smartes Laden nicht aktiv!\n\n` +
+					`Ladestand: ${vehicleSoc}% (unter ${this.config.minVehicleSoc}%)\n` +
+					`EVCC Modus: ${evccMode} ${evccMode !== "now" ? "❌" : "✅"}\n` +
+					`Octopus Suspended: ${isSuspended ? "JA ❌" : "NEIN ✅"}\n\n` +
+					`Smartes Laden sollte aktiv sein:\n` +
+					`- EVCC Modus: "now"\n` +
+					`- Octopus Suspended: false\n\n` +
+					`Zeit: ${now.toLocaleString("de-DE")}`;
+
+				await this.sendNotification(message);
+				this.lastMonitoringNotification = now.toISOString();
+				this.log.warn("Sent charging monitoring notification");
+			} else {
+				this.log.info("Smart charging is active, all good!");
+			}
+		} catch (error) {
+			this.log.error(`Error checking charging status: ${error.message}`);
+			this.log.error(error.stack);
+		}
+	}
+
+	/**
 	 * Handle messages from admin UI
 	 * @param {ioBroker.Message} obj
 	 */
@@ -871,6 +1042,13 @@ class Calamari extends utils.Adapter {
 				this.log.info("Shutting down AI Decision Engine");
 				this.aiEngine.shutdown();
 				this.aiEngine = null;
+			}
+
+			// Clear charging monitoring interval
+			if (this.chargingMonitoringInterval) {
+				this.log.info("Stopping charging monitoring interval");
+				clearInterval(this.chargingMonitoringInterval);
+				this.chargingMonitoringInterval = null;
 			}
 
 			this.log.info("Adapter cleanup completed");

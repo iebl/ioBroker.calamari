@@ -400,6 +400,67 @@
 			"text": "💡 Multiple decisions recommended: brightsky provides only 13h forecast. Run decisions every 8-12h for optimal coverage (e.g., morning 06:00 and evening 17:30).",
 			"newLine": true,
 			"hidden": "!data.enableAiMode"
+		},
+		"_smartChargingMonitoring": {
+			"type": "header",
+			"text": "Smart Charging Monitoring",
+			"size": 3,
+			"newLine": true
+		},
+		"enableChargingMonitoring": {
+			"type": "checkbox",
+			"label": "Enable Charging Monitoring",
+			"help": "Monitor if smart charging is active after configured time when vehicle SoC is low",
+			"default": false,
+			"newLine": true
+		},
+		"monitoringStartTime": {
+			"type": "text",
+			"label": "Monitoring Start Time (HH:MM)",
+			"help": "Time when monitoring should start (e.g., 20:00)",
+			"default": "20:00",
+			"newLine": true,
+			"hidden": "!data.enableChargingMonitoring"
+		},
+		"minVehicleSoc": {
+			"type": "number",
+			"min": 0,
+			"max": 100,
+			"label": "Minimum Vehicle SoC (%)",
+			"help": "Trigger notification if vehicle SoC is below this value",
+			"default": 60,
+			"hidden": "!data.enableChargingMonitoring"
+		},
+		"telegramInstance": {
+			"type": "text",
+			"label": "Telegram Instance",
+			"help": "Telegram adapter instance for notifications (e.g., telegram.0)",
+			"default": "telegram.0",
+			"newLine": true,
+			"hidden": "!data.enableChargingMonitoring"
+		},
+		"telegramUser": {
+			"type": "text",
+			"label": "Telegram User",
+			"help": "Telegram username to receive notifications",
+			"default": "",
+			"hidden": "!data.enableChargingMonitoring"
+		},
+		"signalInstance": {
+			"type": "text",
+			"label": "Signal Instance (optional)",
+			"help": "Signal adapter instance for notifications (e.g., signal-cmb.0)",
+			"default": "",
+			"newLine": true,
+			"hidden": "!data.enableChargingMonitoring"
+		},
+		"evccLoadpointIndex": {
+			"type": "number",
+			"min": 0,
+			"label": "EVCC Loadpoint Index",
+			"help": "Index of the evcc loadpoint to monitor (usually 0)",
+			"default": 0,
+			"hidden": "!data.enableChargingMonitoring"
 		}
 	}
 }
