@@ -44,6 +44,11 @@ After starting the Adapter there will be a Datapoints with all Informations from
 -->
 ### **WORK IN PROGRESS**
 
+* (huepfman) Add Smart Charging Monitoring feature
+* (huepfman) Monitor if smart charging is active after configured time when vehicle SoC is low
+* (huepfman) Send notifications via Telegram and Signal when charging is not active
+* (huepfman) Configurable monitoring start time and minimum SoC threshold
+
 ### 1.1.1 (2025-10-27)
 
 * (huepfman) Fix AI Mode data gathering - missing await caused undefined context values
