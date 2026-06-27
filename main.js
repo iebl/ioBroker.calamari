@@ -8,7 +8,7 @@
 // you need to create an adapter
 const utils = require("@iobroker/adapter-core");
 const OctopusGermany = require("./lib/octopusGermany");
-const { AIDecisionEngine } = require("./lib/aiMode");
+const { AIDecisionEngine, SmartChargingPlanner } = require("./lib/aiMode");
 
 // Load your modules here, e.g.:
 // const fs = require("fs");
@@ -37,6 +37,9 @@ class Calamari extends utils.Adapter {
 
 		// AI Decision Engine (initialized in onReady if enabled)
 		this.aiEngine = null;
+
+		// Smart Charging Planner (initialized in onReady if enabled)
+		this.smartChargingPlanner = null;
 
 		// Charging monitoring
 		this.chargingMonitoringInterval = null;
@@ -156,6 +159,22 @@ class Calamari extends utils.Adapter {
 			this.pollInterval = setInterval(() => {
 				this.fetchDataFromAPI();
 			}, this.config.pollInterval * 1000);
+
+			// Initialize Smart Charging Planner if enabled
+			if (this.config.enableSmartCharging) {
+				this.log.info("Smart Charging Planner is enabled, initializing...");
+				try {
+					this.smartChargingPlanner = new SmartChargingPlanner(this, this.config);
+					await this.smartChargingPlanner.initialize();
+					this.subscribeStates("smartCharging.triggerCalculation");
+					this.log.info("Smart Charging Planner initialized successfully");
+				} catch (error) {
+					this.log.error(`Failed to initialize Smart Charging Planner: ${error.message}`);
+					this.log.warn("Continuing without Smart Charging Planner");
+				}
+			} else {
+				this.log.debug("Smart Charging Planner is disabled");
+			}
 
 			// Initialize charging monitoring if enabled
 			if (this.config.enableChargingMonitoring) {
@@ -1048,6 +1067,13 @@ class Calamari extends utils.Adapter {
 				this.aiEngine = null;
 			}
 
+			// Shutdown Smart Charging Planner
+			if (this.smartChargingPlanner) {
+				this.log.info("Shutting down Smart Charging Planner");
+				this.smartChargingPlanner.shutdown();
+				this.smartChargingPlanner = null;
+			}
+
 			// Clear charging monitoring interval
 			if (this.chargingMonitoringInterval) {
 				this.log.info("Stopping charging monitoring interval");
@@ -1081,6 +1107,23 @@ class Calamari extends utils.Adapter {
 		}
 
 		this.log.info(`state ${id} changed: ${state.val} (ack = ${state.ack})`);
+
+		// Check if this is the Smart Charging manual trigger
+		if (id === `${this.name}.${this.instance}.smartCharging.triggerCalculation` && state.val === true) {
+			this.log.info("Manual Smart Charging calculation triggered by user");
+			if (this.smartChargingPlanner) {
+				try {
+					await this.smartChargingPlanner.calculate();
+					this.log.info("Manual Smart Charging calculation completed");
+				} catch (error) {
+					this.log.error(`Manual Smart Charging calculation failed: ${error.message}`);
+				}
+			} else {
+				this.log.warn("Smart Charging Planner not initialized - enable it in configuration");
+			}
+			await this.setStateAsync(id, false, true);
+			return;
+		}
 
 		// Check if this is the AI trigger state
 		if (id === `${this.name}.${this.instance}.aiMode.triggerDecision` && state.val === true) {

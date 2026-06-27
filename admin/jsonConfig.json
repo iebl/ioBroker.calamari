@@ -125,7 +125,7 @@
 			"text": "Weather Forecast (brightsky - Deutscher Wetterdienst)",
 			"size": 5,
 			"newLine": true,
-			"hidden": "!data.enableAiMode"
+			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
 		},
 		"brightskyInstance": {
 			"type": "text",
@@ -133,7 +133,7 @@
 			"help": "Instance of the brightsky adapter (e.g., brightsky.0). Reads hourly forecast data including temperature, cloud coverage, precipitation, wind speed, solar irradiation, and sunshine duration from Deutscher Wetterdienst (DWD).",
 			"default": "brightsky.0",
 			"newLine": true,
-			"hidden": "!data.enableAiMode"
+			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
 		},
 		"_claudeApi": {
 			"type": "header",
@@ -170,21 +170,21 @@
 			"text": "PV System Configuration",
 			"size": 5,
 			"newLine": true,
-			"hidden": "!data.enableAiMode"
+			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
 		},
 		"pvArray1Enabled": {
 			"type": "checkbox",
 			"label": "PV Array 1 Enabled",
 			"default": true,
 			"newLine": true,
-			"hidden": "!data.enableAiMode"
+			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
 		},
 		"pvArray1Power": {
 			"type": "number",
 			"min": 0,
 			"label": "PV Array 1 - Peak Power (kWp)",
 			"default": 3,
-			"hidden": "!data.enableAiMode || !data.pvArray1Enabled"
+			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray1Enabled"
 		},
 		"pvArray1Orientation": {
 			"type": "select",
@@ -200,7 +200,7 @@
 				{"label": "Northwest", "value": "NW"}
 			],
 			"default": "E",
-			"hidden": "!data.enableAiMode || !data.pvArray1Enabled"
+			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray1Enabled"
 		},
 		"pvArray1Tilt": {
 			"type": "number",
@@ -210,21 +210,21 @@
 			"help": "0 = horizontal, 90 = vertical",
 			"default": 0,
 			"newLine": true,
-			"hidden": "!data.enableAiMode || !data.pvArray1Enabled"
+			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray1Enabled"
 		},
 		"pvArray2Enabled": {
 			"type": "checkbox",
 			"label": "PV Array 2 Enabled",
 			"default": true,
 			"newLine": true,
-			"hidden": "!data.enableAiMode"
+			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
 		},
 		"pvArray2Power": {
 			"type": "number",
 			"min": 0,
 			"label": "PV Array 2 - Peak Power (kWp)",
 			"default": 4.2,
-			"hidden": "!data.enableAiMode || !data.pvArray2Enabled"
+			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray2Enabled"
 		},
 		"pvArray2Orientation": {
 			"type": "select",
@@ -240,7 +240,7 @@
 				{"label": "Northwest", "value": "NW"}
 			],
 			"default": "S",
-			"hidden": "!data.enableAiMode || !data.pvArray2Enabled"
+			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray2Enabled"
 		},
 		"pvArray2Tilt": {
 			"type": "number",
@@ -249,21 +249,21 @@
 			"label": "PV Array 2 - Tilt Angle (degrees)",
 			"default": 52,
 			"newLine": true,
-			"hidden": "!data.enableAiMode || !data.pvArray2Enabled"
+			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray2Enabled"
 		},
 		"pvArray3Enabled": {
 			"type": "checkbox",
 			"label": "PV Array 3 Enabled",
 			"default": true,
 			"newLine": true,
-			"hidden": "!data.enableAiMode"
+			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
 		},
 		"pvArray3Power": {
 			"type": "number",
 			"min": 0,
 			"label": "PV Array 3 - Peak Power (kWp)",
 			"default": 1.6,
-			"hidden": "!data.enableAiMode || !data.pvArray3Enabled"
+			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray3Enabled"
 		},
 		"pvArray3Orientation": {
 			"type": "select",
@@ -279,7 +279,7 @@
 				{"label": "Northwest", "value": "NW"}
 			],
 			"default": "W",
-			"hidden": "!data.enableAiMode || !data.pvArray3Enabled"
+			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray3Enabled"
 		},
 		"pvArray3Tilt": {
 			"type": "number",
@@ -288,14 +288,14 @@
 			"label": "PV Array 3 - Tilt Angle (degrees)",
 			"default": 0,
 			"newLine": true,
-			"hidden": "!data.enableAiMode || !data.pvArray3Enabled"
+			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray3Enabled"
 		},
 		"_batteryConfiguration": {
 			"type": "header",
 			"text": "Battery Configuration",
 			"size": 5,
 			"newLine": true,
-			"hidden": "!data.enableAiMode"
+			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
 		},
 		"batteryCapacity": {
 			"type": "number",
@@ -304,7 +304,7 @@
 			"help": "Total usable battery capacity",
 			"default": 10,
 			"newLine": true,
-			"hidden": "!data.enableAiMode"
+			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
 		},
 		"batteryMinSoc": {
 			"type": "number",
@@ -313,7 +313,7 @@
 			"label": "Minimum SOC (%)",
 			"help": "Minimum battery state of charge to maintain",
 			"default": 20,
-			"hidden": "!data.enableAiMode"
+			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
 		},
 		"batteryMaxChargePower": {
 			"type": "number",
@@ -322,7 +322,7 @@
 			"help": "Maximum charging power of battery",
 			"default": 5,
 			"newLine": true,
-			"hidden": "!data.enableAiMode"
+			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
 		},
 		"_evccIntegration": {
 			"type": "header",
@@ -400,6 +400,65 @@
 			"text": "💡 Multiple decisions recommended: brightsky provides only 13h forecast. Run decisions every 8-12h for optimal coverage (e.g., morning 06:00 and evening 17:30).",
 			"newLine": true,
 			"hidden": "!data.enableAiMode"
+		},
+		"_smartChargingPlanner": {
+			"type": "header",
+			"text": "Smart Charging Planner - Akku-Ladeziel Berechnung",
+			"size": 3,
+			"newLine": true
+		},
+		"_smartChargingPlannerDesc": {
+			"type": "staticText",
+			"text": "Berechnet täglich den optimalen Akku-Ladeziel (%) für die günstige Stromphase, damit der Akku bis zur ausreichenden PV-Produktion reicht. Benötigt brightsky-Adapter und PV/Batterie-Konfiguration (unten oder aus dem AI Mode Abschnitt).",
+			"newLine": true
+		},
+		"enableSmartCharging": {
+			"type": "checkbox",
+			"label": "Smart Charging Planner aktivieren",
+			"help": "Berechnet täglich das optimale Akku-Ladeziel basierend auf PV-Vorhersage und Strompreisen",
+			"default": false,
+			"newLine": true
+		},
+		"evccUrl": {
+			"type": "text",
+			"label": "evcc URL",
+			"help": "HTTP-Adresse von evcc (z.B. http://192.168.1.100:7070 oder http://evcc:7070). Wird für die Batteriesteuerung via REST API benötigt.",
+			"default": "http://evcc:7070",
+			"newLine": true,
+			"hidden": "!data.enableSmartCharging"
+		},
+		"_evccNote": {
+			"type": "staticText",
+			"text": "⚠️ Voraussetzung: In evcc unter Darstellung → Experimentell → 'Experimentelle Funktionen anzeigen' aktivieren, dann unter Hausbatterie → Netzladen → Preisgrenze einmalig manuell testen.",
+			"newLine": true,
+			"hidden": "!data.enableSmartCharging"
+		},
+		"smartChargingCalcTime": {
+			"type": "text",
+			"label": "Berechnungszeit (HH:MM)",
+			"help": "Tägliche Uhrzeit für die Berechnung, z.B. 22:00 (vor der günstigen Nachtstromphase)",
+			"default": "22:00",
+			"newLine": true,
+			"hidden": "!data.enableSmartCharging"
+		},
+		"householdConsumptionKw": {
+			"type": "number",
+			"min": 0.1,
+			"max": 20,
+			"label": "Durchschnittlicher Hausverbrauch (kW)",
+			"help": "Mittlerer Stromverbrauch des Hauses in kW (ohne EV und PV). Wird für die Berechnung des Energie-Gaps genutzt.",
+			"default": 0.5,
+			"newLine": true,
+			"hidden": "!data.enableSmartCharging"
+		},
+		"pvSufficiencyThreshold": {
+			"type": "number",
+			"min": 0.1,
+			"max": 20,
+			"label": "PV-Ausreichungsschwelle (kWh/h)",
+			"help": "Ab welcher PV-Produktion pro Stunde gilt die Solaranlage als 'ausreichend' (deckt Hausverbrauch). Typisch: 0.5–2 kWh/h.",
+			"default": 1.0,
+			"hidden": "!data.enableSmartCharging"
 		},
 		"_smartChargingMonitoring": {
 			"type": "header",
