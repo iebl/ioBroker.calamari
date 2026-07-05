@@ -460,6 +460,14 @@
 			"default": 1.0,
 			"hidden": "!data.enableSmartCharging"
 		},
+		"enableSmartChargingNotification": {
+			"type": "checkbox",
+			"label": "Tägliche Ladeplanung per Telegram senden",
+			"help": "Sendet nach jeder Berechnung eine Zusammenfassung (Ladeplan, PV-Prognose) via Telegram",
+			"default": false,
+			"newLine": true,
+			"hidden": "!data.enableSmartCharging"
+		},
 		"_smartChargingMonitoring": {
 			"type": "header",
 			"text": "Smart Charging Monitoring",
@@ -496,14 +504,14 @@
 			"help": "Telegram adapter instance for notifications (e.g., telegram.0)",
 			"default": "telegram.0",
 			"newLine": true,
-			"hidden": "!data.enableChargingMonitoring"
+			"hidden": "!data.enableChargingMonitoring && !data.enableSmartChargingNotification"
 		},
 		"telegramUser": {
 			"type": "text",
 			"label": "Telegram User",
-			"help": "Telegram username to receive notifications",
+			"help": "Telegram username to receive notifications (leave empty to use default)",
 			"default": "",
-			"hidden": "!data.enableChargingMonitoring"
+			"hidden": "!data.enableChargingMonitoring && !data.enableSmartChargingNotification"
 		},
 		"signalInstance": {
 			"type": "text",

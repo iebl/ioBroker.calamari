@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "calamari",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "news": {
+      "1.4.0": {
+        "en": "Send daily Smart Charging forecast via Telegram\nAfter each calculation, sends a summary with charge target, PV forecast and cheap phase times\nFix: Battery was charged to 100% because PV production during morning gap was not subtracted\nFix: Startup race condition — grid charging limit in evcc now always synced on first control cycle",
+        "de": "Tägliche Smart Charging Prognose per Telegram senden\nNach jeder Berechnung wird eine Zusammenfassung mit Ladeziel, PV-Prognose und günstiger Phase gesendet\nFix: Akku wurde auf 100% geladen, weil PV-Produktion in der Morgenlücke nicht abgezogen wurde\nFix: Startup-Race-Condition — batterygridchargelimit in evcc wird beim ersten Zyklus immer gesetzt",
+        "ru": "Ежедневная отправка прогноза Smart Charging через Telegram\nПосле каждого расчёта отправляет сводку с целью заряда, прогнозом PV и временем дешёвой фазы\nФикс: батарея заряжалась до 100%, так как производство PV в утренней лакуне не вычиталось\nФикс: состояние гонки при запуске — лимит зарядки сети в evcc теперь всегда синхронизируется в первом цикле",
+        "pt": "Enviar previsão diária de Smart Charging via Telegram\nApós cada cálculo, envia um resumo com alvo de carga, previsão PV e horários da fase barata\nCorreção: bateria era carregada a 100% porque produção PV na lacuna matinal não era subtraída\nCorreção: condição de corrida no início — limite de carga de rede no evcc agora sempre sincronizado no primeiro ciclo",
+        "nl": "Dagelijkse Smart Charging prognose via Telegram verzenden\nNa elke berekening wordt een samenvatting gestuurd met laaddoel, PV-prognose en goedkope fase tijden\nFix: batterij werd tot 100% geladen omdat PV-productie in de ochtendskloof niet werd afgetrokken\nFix: startup race condition — netlaadlimiet in evcc nu altijd gesynchroniseerd bij eerste cyclus",
+        "fr": "Envoyer la prévision quotidienne de Smart Charging via Telegram\nAprès chaque calcul, envoie un résumé avec l'objectif de charge, la prévision PV et les horaires de la phase bon marché\nCorrection: la batterie était chargée à 100% car la production PV pendant le creux matinal n'était pas soustraite\nCorrection: condition de course au démarrage — la limite de charge réseau dans evcc est maintenant toujours synchronisée au premier cycle",
+        "it": "Inviare la previsione giornaliera di Smart Charging via Telegram\nDopo ogni calcolo, invia un riepilogo con l'obiettivo di carica, la previsione PV e gli orari della fase economica\nFix: la batteria veniva caricata al 100% perché la produzione PV durante il divario mattutino non veniva sottratta\nFix: condizione di gara all'avvio — il limite di carica rete in evcc ora sempre sincronizzato al primo ciclo",
+        "es": "Enviar previsión diaria de Smart Charging vía Telegram\nDespués de cada cálculo, envía un resumen con el objetivo de carga, previsión PV y horarios de fase barata\nCorreción: la batería se cargaba al 100% porque la producción PV durante el hueco matutino no se restaba\nCorreción: condición de carrera en el inicio — el límite de carga de red en evcc ahora siempre se sincroniza en el primer ciclo",
+        "pl": "Wysyłanie codziennej prognozy Smart Charging przez Telegram\nPo każdym obliczeniu wysyła podsumowanie z celem ładowania, prognozą PV i czasami taniej fazy\nPoprawka: bateria była ładowana do 100%, ponieważ produkcja PV w porannej luce nie była odejmowana\nPoprawka: wyścig na start — limit ładowania sieciowego w evcc teraz zawsze synchronizowany w pierwszym cyklu",
+        "uk": "Щоденне надсилання прогнозу Smart Charging через Telegram\nПісля кожного розрахунку надсилає зведення з ціллю заряду, прогнозом PV та часами дешевої фази\nВиправлення: батарея заряджалася до 100%, оскільки виробництво PV у ранковій прогалині не віднімалося\nВиправлення: стан гонки при запуску — ліміт мережевого заряджання в evcc тепер завжди синхронізується при першому циклі",
+        "zh-cn": "通过Telegram发送每日智能充电预测\n每次计算后发送包含充电目标、PV预测和廉价阶段时间的摘要\n修复：由于未减去早晨间隙期间的PV产量，电池被充至100%\n修复：启动竞争条件——evcc中的电网充电限制现在在第一个控制周期始终同步"
+      },
       "1.3.0": {
         "en": "Add Smart Charging Planner with automatic evcc battery control\nCalculates daily battery charge target based on cheap electricity timeslots and PV forecast\nControls evcc grid charging via REST API (batterygridchargelimit) every 5 minutes\nUses historical SQL consumption data for accurate gap calculation; static value as fallback\nEnriched Claude AI prompt with Octopus ToU tariff rates and improved targetSoc focus\nNew states: smartCharging.targetSoc, gridChargingActive, batterySoc, recommendation",
         "de": "Smart Charging Planner mit automatischer evcc Batteriesteuerung hinzugefügt\nBerechnet täglich das Akku-Ladeziel basierend auf günstigen Stromtimeslots und PV-Vorhersage\nSteuert evcc Netzladen via REST API (batterygridchargelimit) alle 5 Minuten\nNutzt historische SQL-Verbrauchsdaten für genaue Lückenberechnung; statischer Wert als Fallback\nClaude AI Prompt mit Octopus ToU-Tarifdaten angereichert und targetSoc-Fokus verbessert\nNeue Datenpunkte: smartCharging.targetSoc, gridChargingActive, batterySoc, recommendation",
@@ -209,6 +222,7 @@
     "aiDecisionTime": "17:30",
     "aiConsiderDays": 2,
     "enableSmartCharging": false,
+    "enableSmartChargingNotification": false,
     "evccUrl": "http://evcc:7070",
     "smartChargingCalcTime": "22:00",
     "householdConsumptionKw": 0.5,
