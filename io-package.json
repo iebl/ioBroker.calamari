@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "calamari",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "news": {
+      "1.5.0": {
+        "en": "Just-in-time battery charging: calculates exact charge start time based on AC charge power\nNew config: AC charge power (kW) — battery starts charging just in time to reach target SoC by phase end\nTelegram notification now includes charging start time and duration\nNew states: smartCharging.chargingStartTime, smartCharging.chargingDurationMin",
+        "de": "Just-in-time Akkuladung: berechnet genauen Ladestart basierend auf AC-Ladeleistung\nNeue Einstellung: AC-Ladeleistung (kW) — Akku lädt genau dann, um am Ende der günstigen Phase das Ladeziel zu erreichen\nTelegram-Benachrichtigung zeigt jetzt Ladestart und Ladedauer\nNeue Datenpunkte: smartCharging.chargingStartTime, smartCharging.chargingDurationMin",
+        "ru": "Зарядка батареи точно в срок: вычисляет точное время начала зарядки на основе мощности AC зарядки\nНовая настройка: мощность AC зарядки (кВт) — батарея начинает заряжаться вовремя, чтобы достичь целевого SoC к концу фазы\nУведомление Telegram теперь включает время начала зарядки и продолжительность\nНовые состояния: smartCharging.chargingStartTime, smartCharging.chargingDurationMin",
+        "pt": "Carga de bateria just-in-time: calcula o tempo exato de início de carga com base na potência de carga AC\nNova configuração: potência de carga AC (kW) — a bateria começa a carregar a tempo para atingir o SoC alvo no final da fase\nNotificação Telegram agora inclui hora de início e duração da carga\nNovos estados: smartCharging.chargingStartTime, smartCharging.chargingDurationMin",
+        "nl": "Just-in-time batterijladen: berekent exact starttijd van laden op basis van AC laadvermogen\nNieuwe instelling: AC laadvermogen (kW) — batterij begint op tijd met laden om doel-SoC te bereiken aan het einde van de fase\nTelegram-melding toont nu laadstarttijd en -duur\nNieuwe toestanden: smartCharging.chargingStartTime, smartCharging.chargingDurationMin",
+        "fr": "Charge de batterie juste à temps: calcule l'heure exacte de début de charge en fonction de la puissance de charge AC\nNouveau paramètre: puissance de charge AC (kW) — la batterie commence à charger juste à temps pour atteindre le SoC cible à la fin de la phase\nNotification Telegram inclut maintenant l'heure de début et la durée de charge\nNouveaux états: smartCharging.chargingStartTime, smartCharging.chargingDurationMin",
+        "it": "Ricarica della batteria just-in-time: calcola l'orario esatto di inizio ricarica in base alla potenza di ricarica AC\nNuova impostazione: potenza di ricarica AC (kW) — la batteria inizia a caricarsi appena in tempo per raggiungere il SoC obiettivo entro la fine della fase\nNotifica Telegram ora include l'orario di inizio e la durata della ricarica\nNuovi stati: smartCharging.chargingStartTime, smartCharging.chargingDurationMin",
+        "es": "Carga de batería justo a tiempo: calcula el tiempo exacto de inicio de carga basado en la potencia de carga AC\nNueva configuración: potencia de carga AC (kW) — la batería comienza a cargarse justo a tiempo para alcanzar el SoC objetivo al final de la fase\nNotificación de Telegram ahora incluye hora de inicio y duración de la carga\nNuevos estados: smartCharging.chargingStartTime, smartCharging.chargingDurationMin",
+        "pl": "Ładowanie baterii just-in-time: oblicza dokładny czas rozpoczęcia ładowania na podstawie mocy ładowania AC\nNowe ustawienie: moc ładowania AC (kW) — bateria rozpoczyna ładowanie w odpowiednim czasie, aby osiągnąć docelowy SoC na końcu fazy\nPowiadomienie Telegram zawiera teraz czas rozpoczęcia i czas trwania ładowania\nNowe stany: smartCharging.chargingStartTime, smartCharging.chargingDurationMin",
+        "uk": "Just-in-time зарядка батареї: обчислює точний час початку зарядки на основі потужності зарядки AC\nНове налаштування: потужність зарядки AC (кВт) — батарея починає заряджатися вчасно, щоб досягти цільового SoC до кінця фази\nПовідомлення Telegram тепер включає час початку та тривалість зарядки\nНові стани: smartCharging.chargingStartTime, smartCharging.chargingDurationMin",
+        "zh-cn": "准时电池充电：根据交流充电功率计算精确充电开始时间\n新配置：交流充电功率（kW）——电池恰好在需要时开始充电，以在阶段结束时达到目标SoC\nTelegram通知现在包括充电开始时间和持续时间\n新状态：smartCharging.chargingStartTime、smartCharging.chargingDurationMin"
+      },
       "1.4.0": {
         "en": "Send daily Smart Charging forecast via Telegram\nAfter each calculation, sends a summary with charge target, PV forecast and cheap phase times\nFix: Battery was charged to 100% because PV production during morning gap was not subtracted\nFix: Startup race condition — grid charging limit in evcc now always synced on first control cycle",
         "de": "Tägliche Smart Charging Prognose per Telegram senden\nNach jeder Berechnung wird eine Zusammenfassung mit Ladeziel, PV-Prognose und günstiger Phase gesendet\nFix: Akku wurde auf 100% geladen, weil PV-Produktion in der Morgenlücke nicht abgezogen wurde\nFix: Startup-Race-Condition — batterygridchargelimit in evcc wird beim ersten Zyklus immer gesetzt",
@@ -223,6 +236,7 @@
     "aiConsiderDays": 2,
     "enableSmartCharging": false,
     "enableSmartChargingNotification": false,
+    "acChargePowerKw": 4.0,
     "evccUrl": "http://evcc:7070",
     "smartChargingCalcTime": "22:00",
     "householdConsumptionKw": 0.5,

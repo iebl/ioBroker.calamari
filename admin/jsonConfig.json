@@ -460,6 +460,16 @@
 			"default": 1.0,
 			"hidden": "!data.enableSmartCharging"
 		},
+		"acChargePowerKw": {
+			"type": "number",
+			"min": 0.1,
+			"max": 50,
+			"label": "AC-Ladeleistung Hausbatterie (kW)",
+			"help": "Maximale Ladeleistung der Hausbatterie aus dem Netz in kW. Wird für die Just-in-Time Berechnung des Ladestarts benötigt.",
+			"default": 4.0,
+			"newLine": true,
+			"hidden": "!data.enableSmartCharging"
+		},
 		"enableSmartChargingNotification": {
 			"type": "checkbox",
 			"label": "Tägliche Ladeplanung per Telegram senden",
