@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "calamari",
-    "version": "1.5.0",
+    "version": "1.5.1",
     "news": {
+      "1.5.1": {
+        "en": "Maintenance release: version bump for ioBroker adapter update",
+        "de": "Wartungsrelease: Versionsnummer für ioBroker Adapter-Update erhöht",
+        "ru": "Техническое обновление: повышение номера версии",
+        "pt": "Versão de manutenção: atualização de versão",
+        "nl": "Onderhoudversie: versienummer verhoogd",
+        "fr": "Version de maintenance: mise à jour du numéro de version",
+        "it": "Versione di manutenzione: aggiornamento numero versione",
+        "es": "Versión de mantenimiento: actualización de número de versión",
+        "pl": "Wersja konserwacyjna: aktualizacja numeru wersji",
+        "uk": "Технічне оновлення: підвищення номера версії",
+        "zh-cn": "维护版本：版本号更新"
+      },
       "1.5.0": {
         "en": "Just-in-time battery charging: calculates exact charge start time based on AC charge power\nNew config: AC charge power (kW) — battery starts charging just in time to reach target SoC by phase end\nTelegram notification now includes charging start time and duration\nNew states: smartCharging.chargingStartTime, smartCharging.chargingDurationMin",
         "de": "Just-in-time Akkuladung: berechnet genauen Ladestart basierend auf AC-Ladeleistung\nNeue Einstellung: AC-Ladeleistung (kW) — Akku lädt genau dann, um am Ende der günstigen Phase das Ladeziel zu erreichen\nTelegram-Benachrichtigung zeigt jetzt Ladestart und Ladedauer\nNeue Datenpunkte: smartCharging.chargingStartTime, smartCharging.chargingDurationMin",
