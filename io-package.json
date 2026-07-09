@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "calamari",
-    "version": "1.5.1",
+    "version": "1.5.2",
     "news": {
+      "1.5.2": {
+        "en": "Conservative battery charging: use historical PV data from SQL adapter for more accurate energy gap calculation; new config: evccPvPowerState, pvConservatismFactor (default 75%)",
+        "de": "Konservativere Akkubeladung: historische PV-Daten aus SQL-Adapter für genauere Energie-Lücken-Berechnung; neue Einstellungen: evccPvPowerState, pvConservatismFactor (Standard 75%)",
+        "ru": "Консервативная зарядка батареи: использование исторических данных PV из SQL-адаптера для более точного расчёта энергетического разрыва; новые настройки: evccPvPowerState, pvConservatismFactor",
+        "pt": "Carregamento conservador de bateria: usa dados históricos de PV do adaptador SQL para cálculo mais preciso do gap de energia; novas configurações: evccPvPowerState, pvConservatismFactor",
+        "nl": "Conservatief batterijladen: gebruik historische PV-gegevens uit SQL-adapter voor nauwkeurigere energiegap-berekening; nieuwe instellingen: evccPvPowerState, pvConservatismFactor",
+        "fr": "Charge conservatrice de la batterie: utilise les données PV historiques de l'adaptateur SQL pour un calcul plus précis de l'écart énergétique; nouveaux paramètres: evccPvPowerState, pvConservatismFactor",
+        "it": "Ricarica conservativa della batteria: usa dati PV storici dall'adattatore SQL per un calcolo più preciso del gap energetico; nuove impostazioni: evccPvPowerState, pvConservatismFactor",
+        "es": "Carga conservadora de batería: usa datos históricos de PV del adaptador SQL para cálculo más preciso del gap de energía; nuevas configuraciones: evccPvPowerState, pvConservatismFactor",
+        "pl": "Konserwatywne ładowanie baterii: historyczne dane PV z adaptera SQL dla dokładniejszego obliczenia luki energetycznej; nowe ustawienia: evccPvPowerState, pvConservatismFactor",
+        "uk": "Консервативне заряджання батареї: використання історичних даних PV з SQL-адаптера для точнішого розрахунку енергетичного розриву; нові налаштування: evccPvPowerState, pvConservatismFactor",
+        "zh-cn": "保守电池充电：使用SQL适配器的历史光伏数据进行更精确的能量缺口计算；新配置：evccPvPowerState、pvConservatismFactor（默认75%）"
+      },
       "1.5.1": {
         "en": "Maintenance release: version bump for ioBroker adapter update",
         "de": "Wartungsrelease: Versionsnummer für ioBroker Adapter-Update erhöht",
@@ -254,6 +267,8 @@
     "smartChargingCalcTime": "22:00",
     "householdConsumptionKw": 0.5,
     "pvSufficiencyThreshold": 1.0,
+    "evccPvPowerState": "evcc.0.status.pv",
+    "pvConservatismFactor": 0.75,
     "enableChargingMonitoring": false,
     "monitoringStartTime": "20:00",
     "minVehicleSoc": 60,
