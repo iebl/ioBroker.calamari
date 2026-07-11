@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "calamari",
-    "version": "1.5.4",
+    "version": "1.5.5",
     "news": {
+      "1.5.5": {
+        "en": "Multilingual ioBroker state names: all data point descriptions now translated into all 11 supported languages (de, en, es, fr, it, nl, pl, pt, ru, uk, zh-cn)",
+        "de": "Mehrsprachige Datenpunkt-Beschreibungen: alle State-Namen sind jetzt in alle 11 unterstützten Sprachen übersetzt (de, en, es, fr, it, nl, pl, pt, ru, uk, zh-cn)",
+        "ru": "Многоязычные названия состояний ioBroker: все описания точек данных переведены на 11 языков",
+        "pt": "Nomes de estados ioBroker multilíngues: todas as descrições de pontos de dados traduzidas para 11 idiomas",
+        "nl": "Meertalige ioBroker-toestandsnamen: alle datapuntbeschrijvingen vertaald naar 11 talen",
+        "fr": "Noms d'états ioBroker multilingues: toutes les descriptions de points de données traduites en 11 langues",
+        "it": "Nomi di stato ioBroker multilingue: tutte le descrizioni dei punti dati tradotti in 11 lingue",
+        "es": "Nombres de estados ioBroker multilingüe: todas las descripciones de puntos de datos traducidas a 11 idiomas",
+        "pl": "Wielojęzyczne nazwy stanów ioBroker: wszystkie opisy punktów danych przetłumaczone na 11 języków",
+        "uk": "Багатомовні назви станів ioBroker: усі описи точок даних перекладено на 11 мов",
+        "zh-cn": "ioBroker状态多语言名称：所有数据点描述已翻译为11种支持语言"
+      },
       "1.5.4": {
         "en": "Smart Charging: project battery SoC forward to cheap phase start time by subtracting expected household consumption; new state projectedSocAtPhaseStart; Telegram shows current → projected → target SoC",
         "de": "Smart Charging: Akku-SoC wird auf Beginn der günstigen Phase hochgerechnet (Verbrauch bis Ladestart wird abgezogen); neuer State projectedSocAtPhaseStart; Telegram zeigt aktuell → hochgerechnet → Ziel",

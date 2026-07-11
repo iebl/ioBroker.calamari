@@ -10,6 +10,30 @@ const utils = require("@iobroker/adapter-core");
 const OctopusGermany = require("./lib/octopusGermany");
 const { AIDecisionEngine, SmartChargingPlanner } = require("./lib/aiMode");
 
+const N = {
+	triggerAiDecision:        { en: "Trigger AI Decision",                       de: "KI-Entscheidung auslösen",                        ru: "Запустить решение ИИ",                    pt: "Acionar decisão de IA",                     nl: "AI-beslissing activeren",           fr: "Déclencher une décision IA",          it: "Attiva decisione IA",                   es: "Activar decisión IA",                   pl: "Wyzwól decyzję AI",                        uk: "Запустити рішення ШІ",                   "zh-cn": "触发AI决策" },
+	cheapPhaseChannel:        { en: "Cheap Electricity Phase",                   de: "Günstige Stromphase",                             ru: "Фаза дешёвой электроэнергии",             pt: "Fase de eletricidade barata",               nl: "Goedkope stroomfase",               fr: "Phase d'électricité bon marché",      it: "Fase di elettricità economica",         es: "Fase de electricidad barata",           pl: "Tania faza prądu",                        uk: "Фаза дешевої електроенергії",            "zh-cn": "廉价电力阶段" },
+	cheapPhaseActive:         { en: "Currently in Cheap Phase",                  de: "Aktuell in günstiger Phase",                      ru: "Сейчас в дешёвой фазе",                   pt: "Atualmente em fase barata",                 nl: "Momenteel in goedkope fase",        fr: "Actuellement en phase bon marché",    it: "Attualmente in fase economica",         es: "Actualmente en fase barata",            pl: "Aktualnie w taniej fazie",                uk: "Зараз у дешевій фазі",                   "zh-cn": "当前处于廉价阶段" },
+	currentPhaseChannel:      { en: "Current Phase Details",                     de: "Aktuelle Phase – Details",                        ru: "Текущая фаза – детали",                   pt: "Fase atual – detalhes",                     nl: "Huidige fase – details",            fr: "Phase actuelle – détails",            it: "Fase corrente – dettagli",              es: "Fase actual – detalles",                pl: "Aktualna faza – szczegóły",               uk: "Поточна фаза – деталі",                  "zh-cn": "当前阶段详情" },
+	currentPhaseStart:        { en: "Current Phase Start Time",                  de: "Startzeit der aktuellen Phase",                   ru: "Время начала текущей фазы",               pt: "Hora de início da fase atual",              nl: "Starttijd huidige fase",            fr: "Heure de début de la phase actuelle", it: "Ora di inizio fase corrente",           es: "Hora de inicio de la fase actual",      pl: "Czas rozpoczęcia bieżącej fazy",          uk: "Час початку поточної фази",              "zh-cn": "当前阶段开始时间" },
+	currentPhaseEnd:          { en: "Current Phase End Time",                    de: "Endzeit der aktuellen Phase",                     ru: "Время окончания текущей фазы",            pt: "Hora de fim da fase atual",                 nl: "Eindtijd huidige fase",             fr: "Heure de fin de la phase actuelle",   it: "Ora di fine fase corrente",             es: "Hora de fin de la fase actual",         pl: "Czas zakończenia bieżącej fazy",          uk: "Час закінчення поточної фази",           "zh-cn": "当前阶段结束时间" },
+	currentPhaseEnergy:       { en: "Current Phase Energy (kWh)",                de: "Energie der aktuellen Phase (kWh)",               ru: "Энергия текущей фазы (кВт·ч)",           pt: "Energia da fase atual (kWh)",               nl: "Energie huidige fase (kWh)",        fr: "Énergie de la phase actuelle (kWh)",  it: "Energia fase corrente (kWh)",           es: "Energía de la fase actual (kWh)",       pl: "Energia bieżącej fazy (kWh)",             uk: "Енергія поточної фази (кВт·год)",        "zh-cn": "当前阶段电量 (kWh)" },
+	currentPhaseRemaining:    { en: "Minutes Remaining in Current Phase",        de: "Verbleibende Minuten in aktueller Phase",         ru: "Оставшиеся минуты текущей фазы",         pt: "Minutos restantes na fase atual",           nl: "Resterende minuten huidige fase",   fr: "Minutes restantes dans la phase",     it: "Minuti rimanenti nella fase corrente",  es: "Minutos restantes en la fase actual",   pl: "Pozostałe minuty bieżącej fazy",          uk: "Хвилини, що залишилися у поточній фазі", "zh-cn": "当前阶段剩余分钟数" },
+	nextPhaseChannel:         { en: "Next Phase Details",                        de: "Nächste Phase – Details",                         ru: "Следующая фаза – детали",                 pt: "Próxima fase – detalhes",                   nl: "Volgende fase – details",           fr: "Prochaine phase – détails",           it: "Fase successiva – dettagli",            es: "Próxima fase – detalles",               pl: "Następna faza – szczegóły",               uk: "Наступна фаза – деталі",                 "zh-cn": "下一阶段详情" },
+	nextPhaseStart:           { en: "Next Phase Start Time",                     de: "Startzeit der nächsten Phase",                    ru: "Время начала следующей фазы",             pt: "Hora de início da próxima fase",            nl: "Starttijd volgende fase",           fr: "Heure de début de la prochaine phase",it: "Ora di inizio fase successiva",         es: "Hora de inicio de la próxima fase",     pl: "Czas rozpoczęcia następnej fazy",         uk: "Час початку наступної фази",             "zh-cn": "下一阶段开始时间" },
+	nextPhaseEnd:             { en: "Next Phase End Time",                       de: "Endzeit der nächsten Phase",                      ru: "Время окончания следующей фазы",          pt: "Hora de fim da próxima fase",               nl: "Eindtijd volgende fase",            fr: "Heure de fin de la prochaine phase",  it: "Ora di fine fase successiva",           es: "Hora de fin de la próxima fase",        pl: "Czas zakończenia następnej fazy",         uk: "Час закінчення наступної фази",          "zh-cn": "下一阶段结束时间" },
+	nextPhaseEnergy:          { en: "Next Phase Energy (kWh)",                   de: "Energie der nächsten Phase (kWh)",                ru: "Энергия следующей фазы (кВт·ч)",         pt: "Energia da próxima fase (kWh)",             nl: "Energie volgende fase (kWh)",       fr: "Énergie de la prochaine phase (kWh)", it: "Energia fase successiva (kWh)",         es: "Energía de la próxima fase (kWh)",      pl: "Energia następnej fazy (kWh)",            uk: "Енергія наступної фази (кВт·год)",       "zh-cn": "下一阶段电量 (kWh)" },
+	nextPhaseMinutes:         { en: "Minutes Until Next Phase",                  de: "Minuten bis zur nächsten Phase",                  ru: "Минут до следующей фазы",                 pt: "Minutos até a próxima fase",                nl: "Minuten tot volgende fase",         fr: "Minutes avant la prochaine phase",    it: "Minuti alla prossima fase",             es: "Minutos hasta la próxima fase",         pl: "Minuty do następnej fazy",                uk: "Хвилин до наступної фази",               "zh-cn": "距下一阶段分钟数" },
+	pricingChannel:           { en: "Electricity Pricing",                       de: "Strompreise",                                     ru: "Тарифы на электроэнергию",                pt: "Preços de eletricidade",                    nl: "Elektriciteitsprijzen",             fr: "Tarifs d'électricité",                it: "Prezzi dell'elettricità",               es: "Precios de electricidad",               pl: "Ceny energii elektrycznej",               uk: "Тарифи на електроенергію",               "zh-cn": "电价信息" },
+	grossRateCurrent:         { en: "Current Gross Rate (ct/kWh)",               de: "Aktueller Bruttostrompreis (ct/kWh)",             ru: "Текущий тариф брутто (цент/кВт·ч)",      pt: "Tarifa bruta atual (ct/kWh)",               nl: "Huidige brutotarief (ct/kWh)",      fr: "Tarif brut actuel (ct/kWh)",          it: "Tariffa lorda attuale (ct/kWh)",        es: "Tarifa bruta actual (ct/kWh)",          pl: "Bieżąca stawka brutto (ct/kWh)",          uk: "Поточний тариф брутто (цент/кВт·год)",   "zh-cn": "当前含税电价 (ct/kWh)" },
+	netRateCurrent:           { en: "Current Net Rate (ct/kWh)",                 de: "Aktueller Nettostrompreis (ct/kWh)",              ru: "Текущий тариф нетто (цент/кВт·ч)",       pt: "Tarifa líquida atual (ct/kWh)",             nl: "Huidige nettotarief (ct/kWh)",      fr: "Tarif net actuel (ct/kWh)",           it: "Tariffa netta attuale (ct/kWh)",        es: "Tarifa neta actual (ct/kWh)",           pl: "Bieżąca stawka netto (ct/kWh)",           uk: "Поточний тариф нетто (цент/кВт·год)",    "zh-cn": "当前不含税电价 (ct/kWh)" },
+	timeslotName:             { en: "Timeslot Name",                             de: "Zeitfenster-Name",                                ru: "Название временного слота",               pt: "Nome do período",                           nl: "Naam tijdslot",                     fr: "Nom du créneau horaire",              it: "Nome dell'intervallo",                  es: "Nombre del intervalo horario",          pl: "Nazwa przedziału czasowego",              uk: "Назва часового слоту",                   "zh-cn": "时段名称" },
+	grossRate:                { en: "Gross Rate (ct/kWh)",                       de: "Bruttostrompreis (ct/kWh)",                       ru: "Тариф брутто (цент/кВт·ч)",              pt: "Tarifa bruta (ct/kWh)",                     nl: "Brutotarief (ct/kWh)",              fr: "Tarif brut (ct/kWh)",                 it: "Tariffa lorda (ct/kWh)",                es: "Tarifa bruta (ct/kWh)",                 pl: "Stawka brutto (ct/kWh)",                  uk: "Тариф брутто (цент/кВт·год)",            "zh-cn": "含税电价 (ct/kWh)" },
+	netRate:                  { en: "Net Rate (ct/kWh)",                         de: "Nettostrompreis (ct/kWh)",                        ru: "Тариф нетто (цент/кВт·ч)",               pt: "Tarifa líquida (ct/kWh)",                   nl: "Nettotarief (ct/kWh)",              fr: "Tarif net (ct/kWh)",                  it: "Tariffa netta (ct/kWh)",                es: "Tarifa neta (ct/kWh)",                  pl: "Stawka netto (ct/kWh)",                   uk: "Тариф нетто (цент/кВт·год)",             "zh-cn": "不含税电价 (ct/kWh)" },
+	activeFrom:               { en: "Active From Time",                          de: "Aktiv ab",                                        ru: "Активно с",                               pt: "Ativo a partir de",                         nl: "Actief vanaf",                      fr: "Actif à partir de",                   it: "Attivo dalle",                          es: "Activo desde",                          pl: "Aktywne od",                              uk: "Активно з",                              "zh-cn": "开始时间" },
+	activeTo:                 { en: "Active To Time",                            de: "Aktiv bis",                                       ru: "Активно до",                              pt: "Ativo até",                                 nl: "Actief tot",                        fr: "Actif jusqu'à",                       it: "Attivo fino alle",                      es: "Activo hasta",                          pl: "Aktywne do",                              uk: "Активно до",                             "zh-cn": "结束时间" },
+};
+
 // Load your modules here, e.g.:
 // const fs = require("fs");
 
@@ -135,7 +159,7 @@ class Calamari extends utils.Adapter {
 					await this.setObjectNotExistsAsync("aiMode.triggerDecision", {
 						type: "state",
 						common: {
-							name: "Trigger AI Decision (set to true)",
+							name: N.triggerAiDecision,
 							type: "boolean",
 							role: "button",
 							read: true,
@@ -262,7 +286,7 @@ class Calamari extends utils.Adapter {
 		await this.setObjectNotExistsAsync(basePath, {
 			type: "channel",
 			common: {
-				name: "Cheap Electricity Phase Information",
+				name: N.cheapPhaseChannel,
 			},
 			native: {},
 		});
@@ -271,7 +295,7 @@ class Calamari extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`${basePath}.active`, {
 			type: "state",
 			common: {
-				name: "In Cheap Phase",
+				name: N.cheapPhaseActive,
 				type: "boolean",
 				role: "indicator",
 				read: true,
@@ -285,7 +309,7 @@ class Calamari extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`${basePath}.current`, {
 			type: "channel",
 			common: {
-				name: "Current Phase Details",
+				name: N.currentPhaseChannel,
 			},
 			native: {},
 		});
@@ -293,7 +317,7 @@ class Calamari extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`${basePath}.current.start`, {
 			type: "state",
 			common: {
-				name: "Current Phase Start Time",
+				name: N.currentPhaseStart,
 				type: "string",
 				role: "value.datetime",
 				read: true,
@@ -305,7 +329,7 @@ class Calamari extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`${basePath}.current.end`, {
 			type: "state",
 			common: {
-				name: "Current Phase End Time",
+				name: N.currentPhaseEnd,
 				type: "string",
 				role: "value.datetime",
 				read: true,
@@ -317,7 +341,7 @@ class Calamari extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`${basePath}.current.deltaKwh`, {
 			type: "state",
 			common: {
-				name: "Current Phase Energy (kWh)",
+				name: N.currentPhaseEnergy,
 				type: "number",
 				role: "value.power.consumption",
 				read: true,
@@ -330,7 +354,7 @@ class Calamari extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`${basePath}.current.remainingMinutes`, {
 			type: "state",
 			common: {
-				name: "Minutes Remaining in Current Phase",
+				name: N.currentPhaseRemaining,
 				type: "number",
 				role: "value",
 				read: true,
@@ -344,7 +368,7 @@ class Calamari extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`${basePath}.next`, {
 			type: "channel",
 			common: {
-				name: "Next Phase Details",
+				name: N.nextPhaseChannel,
 			},
 			native: {},
 		});
@@ -352,7 +376,7 @@ class Calamari extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`${basePath}.next.start`, {
 			type: "state",
 			common: {
-				name: "Next Phase Start Time",
+				name: N.nextPhaseStart,
 				type: "string",
 				role: "value.datetime",
 				read: true,
@@ -364,7 +388,7 @@ class Calamari extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`${basePath}.next.end`, {
 			type: "state",
 			common: {
-				name: "Next Phase End Time",
+				name: N.nextPhaseEnd,
 				type: "string",
 				role: "value.datetime",
 				read: true,
@@ -376,7 +400,7 @@ class Calamari extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`${basePath}.next.deltaKwh`, {
 			type: "state",
 			common: {
-				name: "Next Phase Energy (kWh)",
+				name: N.nextPhaseEnergy,
 				type: "number",
 				role: "value.power.consumption",
 				read: true,
@@ -389,7 +413,7 @@ class Calamari extends utils.Adapter {
 		await this.setObjectNotExistsAsync(`${basePath}.next.minutesUntilStart`, {
 			type: "state",
 			common: {
-				name: "Minutes Until Next Phase",
+				name: N.nextPhaseMinutes,
 				type: "number",
 				role: "value",
 				read: true,
@@ -520,7 +544,7 @@ class Calamari extends utils.Adapter {
 			await this.setObjectNotExistsAsync(basePath, {
 				type: "channel",
 				common: {
-					name: "Electricity Pricing",
+					name: N.pricingChannel,
 				},
 				native: {},
 			});
@@ -540,7 +564,7 @@ class Calamari extends utils.Adapter {
 											await this.setObjectNotExistsAsync(`${ratePath}.grossRate`, {
 												type: "state",
 												common: {
-													name: "Current Gross Rate (cents/kWh)",
+													name: N.grossRateCurrent,
 													type: "number",
 													role: "value.price",
 													read: true,
@@ -559,7 +583,7 @@ class Calamari extends utils.Adapter {
 											await this.setObjectNotExistsAsync(`${ratePath}.netRate`, {
 												type: "state",
 												common: {
-													name: "Current Net Rate (cents/kWh)",
+													name: N.netRateCurrent,
 													type: "number",
 													role: "value.price",
 													read: true,
@@ -585,7 +609,7 @@ class Calamari extends utils.Adapter {
 												await this.setObjectNotExistsAsync(`${timeSlotPath}.name`, {
 													type: "state",
 													common: {
-														name: "Timeslot Name",
+														name: N.timeslotName,
 														type: "string",
 														role: "text",
 														read: true,
@@ -604,7 +628,7 @@ class Calamari extends utils.Adapter {
 												await this.setObjectNotExistsAsync(`${timeSlotPath}.grossRate`, {
 													type: "state",
 													common: {
-														name: "Gross Rate (cents/kWh)",
+														name: N.grossRate,
 														type: "number",
 														role: "value.price",
 														read: true,
@@ -624,7 +648,7 @@ class Calamari extends utils.Adapter {
 												await this.setObjectNotExistsAsync(`${timeSlotPath}.netRate`, {
 													type: "state",
 													common: {
-														name: "Net Rate (cents/kWh)",
+														name: N.netRate,
 														type: "number",
 														role: "value.price",
 														read: true,
@@ -648,7 +672,7 @@ class Calamari extends utils.Adapter {
 															{
 																type: "state",
 																common: {
-																	name: "Active From Time",
+																	name: N.activeFrom,
 																	type: "string",
 																	role: "text",
 																	read: true,
@@ -669,7 +693,7 @@ class Calamari extends utils.Adapter {
 															{
 																type: "state",
 																common: {
-																	name: "Active To Time",
+																	name: N.activeTo,
 																	type: "string",
 																	role: "text",
 																	read: true,
