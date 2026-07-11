@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "calamari",
-    "version": "1.5.3",
+    "version": "1.5.4",
     "news": {
+      "1.5.4": {
+        "en": "Smart Charging: project battery SoC forward to cheap phase start time by subtracting expected household consumption; new state projectedSocAtPhaseStart; Telegram shows current → projected → target SoC",
+        "de": "Smart Charging: Akku-SoC wird auf Beginn der günstigen Phase hochgerechnet (Verbrauch bis Ladestart wird abgezogen); neuer State projectedSocAtPhaseStart; Telegram zeigt aktuell → hochgerechnet → Ziel",
+        "ru": "Smart Charging: SoC батареи проецируется вперёд до начала дешёвой фазы (вычитается ожидаемое потребление); новый state projectedSocAtPhaseStart",
+        "pt": "Smart Charging: SoC da bateria projetado até o início da fase barata (consumo esperado subtraído); novo state projectedSocAtPhaseStart",
+        "nl": "Smart Charging: batterij-SoC wordt naar starttijd goedkope fase geprojecteerd (verwacht verbruik afgetrokken); nieuw state projectedSocAtPhaseStart",
+        "fr": "Smart Charging: SoC de la batterie projeté jusqu'au début de la phase bon marché (consommation attendue soustraite); nouveau state projectedSocAtPhaseStart",
+        "it": "Smart Charging: SoC batteria proiettato all'inizio della fase economica (consumo atteso sottratto); nuovo state projectedSocAtPhaseStart",
+        "es": "Smart Charging: SoC de la batería proyectado hasta el inicio de la fase barata (consumo esperado restado); nuevo state projectedSocAtPhaseStart",
+        "pl": "Smart Charging: SoC baterii prognozowany do początku taniej fazy (oczekiwane zużycie odejmowane); nowy state projectedSocAtPhaseStart",
+        "uk": "Smart Charging: SoC батареї проектується до початку дешевої фази (очікуване споживання віднімається); новий state projectedSocAtPhaseStart",
+        "zh-cn": "智能充电：将电池SoC预测到廉价阶段开始时刻（减去预期消耗）；新状态projectedSocAtPhaseStart"
+      },
       "1.5.3": {
         "en": "Admin UI: unified language via i18n for all 11 supported languages; merged duplicate AC charge power fields; fixed battery SoC reading from evcc JSON state; new evccBatterySocState config option",
         "de": "Admin-UI: einheitliche Sprache per i18n für alle 11 Sprachen; doppeltes AC-Ladeleistungsfeld zusammengeführt; Akku-SoC-Auslesen aus evcc-JSON-State korrigiert; neue Einstellung evccBatterySocState",
