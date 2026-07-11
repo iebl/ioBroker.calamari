@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "calamari",
-    "version": "1.5.2",
+    "version": "1.5.3",
     "news": {
+      "1.5.3": {
+        "en": "Admin UI: unified language via i18n for all 11 supported languages; merged duplicate AC charge power fields; fixed battery SoC reading from evcc JSON state; new evccBatterySocState config option",
+        "de": "Admin-UI: einheitliche Sprache per i18n für alle 11 Sprachen; doppeltes AC-Ladeleistungsfeld zusammengeführt; Akku-SoC-Auslesen aus evcc-JSON-State korrigiert; neue Einstellung evccBatterySocState",
+        "ru": "Admin UI: единый язык через i18n для всех 11 языков; объединены дублирующиеся поля мощности зарядки; исправлено чтение SoC батареи из JSON-состояния evcc; новая настройка evccBatterySocState",
+        "pt": "Admin UI: idioma unificado via i18n para 11 idiomas; campos de potência de carga AC duplicados mesclados; leitura de SoC da bateria do estado JSON evcc corrigida; nova opção evccBatterySocState",
+        "nl": "Admin UI: uniforme taal via i18n voor alle 11 talen; dubbele AC-laadvermogenvelden samengevoegd; batterij-SoC lezen uit evcc JSON-status gecorrigeerd; nieuwe instelling evccBatterySocState",
+        "fr": "Admin UI: langue unifiée via i18n pour 11 langues; champs de puissance de charge AC en double fusionnés; lecture du SoC de la batterie depuis l'état JSON evcc corrigée; nouvelle option evccBatterySocState",
+        "it": "Admin UI: lingua unificata via i18n per 11 lingue; campi potenza di ricarica AC duplicati uniti; lettura SoC batteria dallo stato JSON evcc corretta; nuova opzione evccBatterySocState",
+        "es": "Admin UI: idioma unificado via i18n para 11 idiomas; campos de potencia de carga AC duplicados fusionados; lectura de SoC de batería del estado JSON evcc corregida; nueva opción evccBatterySocState",
+        "pl": "Admin UI: ujednolicony język przez i18n dla 11 języków; zduplikowane pola mocy ładowania AC połączone; odczyt SoC baterii ze stanu JSON evcc poprawiony; nowa opcja evccBatterySocState",
+        "uk": "Admin UI: єдина мова через i18n для 11 мов; дубльовані поля потужності зарядки AC об'єднано; читання SoC батареї з JSON-стану evcc виправлено; нова опція evccBatterySocState",
+        "zh-cn": "管理界面：通过i18n统一11种语言；合并重复的交流充电功率字段；修复从evcc JSON状态读取电池SoC；新增evccBatterySocState配置项"
+      },
       "1.5.2": {
         "en": "Conservative battery charging: use historical PV data from SQL adapter for more accurate energy gap calculation; new config: evccPvPowerState, pvConservatismFactor (default 75%)",
         "de": "Konservativere Akkubeladung: historische PV-Daten aus SQL-Adapter für genauere Energie-Lücken-Berechnung; neue Einstellungen: evccPvPowerState, pvConservatismFactor (Standard 75%)",
@@ -252,8 +265,8 @@
     "pvArray3Tilt": 0,
     "batteryCapacity": 10,
     "batteryMinSoc": 20,
-    "batteryMaxChargePower": 5,
     "evccInstance": "evcc.0",
+    "evccBatterySocState": "evcc.0.status.battery",
     "enableHistoryAnalysis": true,
     "historyInstance": "sql.0",
     "evccPowerState": "evcc.0.status.homePower",

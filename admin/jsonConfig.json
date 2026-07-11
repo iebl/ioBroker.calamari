@@ -11,37 +11,29 @@
 			"type": "text",
 			"label": "server",
 			"newLine": true,
-			"sm": 12,
-			"md": 6,
-			"lg": 4,
-			"help": "URL of the API Server"
+			"sm": 12, "md": 6, "lg": 4,
+			"help": "URL of the API server"
 		},
 		"email": {
 			"type": "text",
 			"label": "email",
 			"newLine": true,
-			"sm": 12,
-			"md": 6,
-			"lg": 4,
-			"help": "Your E-Mail Address from the Registration of Octopus"
+			"sm": 12, "md": 6, "lg": 4,
+			"help": "Octopus account e-mail address"
 		},
 		"password": {
 			"type": "password",
 			"label": "password",
 			"newLine": true,
-			"sm": 12,
-			"md": 6,
-			"lg": 4,
-			"help": "Password of Account from Octopus"
+			"sm": 12, "md": 6, "lg": 4,
+			"help": "Octopus account password"
 		},
 		"account": {
 			"type": "text",
 			"label": "account",
 			"newLine": true,
-			"sm": 12,
-			"md": 6,
-			"lg": 4,
-			"help": "Electricity contract number (leave empty to auto-discover)"
+			"sm": 12, "md": 6, "lg": 4,
+			"help": "Electricity contract number, leave empty for auto-discovery"
 		},
 		"_pollingSettings": {
 			"type": "header",
@@ -51,86 +43,82 @@
 		},
 		"pollInterval": {
 			"type": "number",
-			"min": 5,
-			"max": 3600,
-			"label": "Poll Interval",
-			"help": "Interval in seconds between data updates",
-			"sm": 4,
-			"xl": 2,
+			"min": 5, "max": 3600,
+			"label": "pollInterval",
+			"help": "Data update interval in seconds (5–3600)",
+			"sm": 4, "xl": 2,
 			"default": 60,
 			"newLine": true
 		},
 		"_chargingPreferences": {
 			"type": "header",
-			"text": "Vehicle Charging Preferences (Optional)",
+			"text": "Vehicle Charging Preferences (optional)",
 			"size": 3,
 			"newLine": true
 		},
 		"enableChargingPreferences": {
 			"type": "checkbox",
-			"label": "Enable Charging Preferences",
-			"help": "Enable automatic setting of vehicle charging preferences",
+			"label": "enableChargingPreferences",
+			"help": "Automatically set vehicle charging targets",
 			"default": false,
 			"newLine": true
 		},
 		"weekdayTargetSoc": {
 			"type": "number",
-			"min": 0,
-			"max": 100,
-			"label": "Weekday Target SoC (%)",
-			"help": "Target state of charge for weekdays (Monday-Friday)",
+			"min": 0, "max": 100,
+			"label": "weekdayTargetSoc",
+			"help": "Target SOC for weekdays (Mon–Fri)",
 			"default": 80,
 			"newLine": true,
 			"hidden": "!data.enableChargingPreferences"
 		},
 		"weekendTargetSoc": {
 			"type": "number",
-			"min": 0,
-			"max": 100,
-			"label": "Weekend Target SoC (%)",
-			"help": "Target state of charge for weekends (Saturday-Sunday)",
+			"min": 0, "max": 100,
+			"label": "weekendTargetSoc",
+			"help": "Target SOC for weekends (Sat–Sun)",
 			"default": 90,
 			"hidden": "!data.enableChargingPreferences"
 		},
 		"weekdayTargetTime": {
 			"type": "text",
-			"label": "Weekday Target Time (HH:MM)",
-			"help": "Target time for weekday charging (e.g., 07:00)",
+			"label": "weekdayTargetTime",
+			"help": "Target time for weekday charging, e.g. 07:00",
 			"default": "07:00",
 			"newLine": true,
 			"hidden": "!data.enableChargingPreferences"
 		},
 		"weekendTargetTime": {
 			"type": "text",
-			"label": "Weekend Target Time (HH:MM)",
-			"help": "Target time for weekend charging (e.g., 09:00)",
+			"label": "weekendTargetTime",
+			"help": "Target time for weekend charging, e.g. 09:00",
 			"default": "09:00",
 			"hidden": "!data.enableChargingPreferences"
 		},
 		"_aiMode": {
 			"type": "header",
-			"text": "AI Mode - Intelligent Battery Charging (Beta)",
+			"text": "AI Mode – Intelligent Battery Charging (Beta)",
 			"size": 3,
 			"newLine": true
 		},
 		"enableAiMode": {
 			"type": "checkbox",
-			"label": "Enable AI Mode",
-			"help": "Enable AI-based battery charging decisions based on weather forecast and PV production",
+			"label": "enableAiMode",
+			"help": "AI-based battery charging decisions using weather forecast and PV production",
 			"default": false,
 			"newLine": true
 		},
 		"_brightskyAdapter": {
 			"type": "header",
-			"text": "Weather Forecast (brightsky - Deutscher Wetterdienst)",
+			"text": "Weather Forecast (brightsky – Deutscher Wetterdienst)",
 			"size": 5,
 			"newLine": true,
 			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
 		},
 		"brightskyInstance": {
 			"type": "text",
-			"label": "brightsky Adapter Instance",
-			"help": "Instance of the brightsky adapter (e.g., brightsky.0). Reads hourly forecast data including temperature, cloud coverage, precipitation, wind speed, solar irradiation, and sunshine duration from Deutscher Wetterdienst (DWD).",
+			"label": "brightskyInstance",
+			"help": "brightsky adapter instance, e.g. brightsky.0 (Deutscher Wetterdienst)",
 			"default": "brightsky.0",
 			"newLine": true,
 			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
@@ -144,16 +132,16 @@
 		},
 		"claudeApiKey": {
 			"type": "password",
-			"label": "Claude API Key",
+			"label": "claudeApiKey",
 			"help": "Anthropic Claude API key for AI decisions",
 			"newLine": true,
 			"hidden": "!data.enableAiMode"
 		},
 		"claudeModel": {
 			"type": "select",
-			"label": "Claude Model",
+			"label": "claudeModel",
 			"options": [
-				{"label": "Sonnet (Recommended - Balanced Performance)", "value": "sonnet"},
+				{"label": "Sonnet (Recommended – Balanced Performance)", "value": "sonnet"},
 				{"label": "Haiku (Fast & Economical)", "value": "haiku"}
 			],
 			"default": "sonnet",
@@ -161,7 +149,7 @@
 		},
 		"_claudeApiHelp": {
 			"type": "staticText",
-			"text": "💡 Tipp: Nach dem Speichern der Konfiguration wird der API Key automatisch beim nächsten AI-Entscheidungs-Lauf getestet. Prüfe die Logs für Erfolgsmeldungen oder Fehler.",
+			"text": "claude_api_key_tip",
 			"newLine": true,
 			"hidden": "!data.enableAiMode"
 		},
@@ -174,7 +162,7 @@
 		},
 		"pvArray1Enabled": {
 			"type": "checkbox",
-			"label": "PV Array 1 Enabled",
+			"label": "pvArray1Enabled",
 			"default": true,
 			"newLine": true,
 			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
@@ -182,31 +170,26 @@
 		"pvArray1Power": {
 			"type": "number",
 			"min": 0,
-			"label": "PV Array 1 - Peak Power (kWp)",
+			"label": "pvArray1Power",
 			"default": 3,
 			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray1Enabled"
 		},
 		"pvArray1Orientation": {
 			"type": "select",
-			"label": "PV Array 1 - Orientation",
+			"label": "pvArray1Orientation",
 			"options": [
-				{"label": "North", "value": "N"},
-				{"label": "Northeast", "value": "NE"},
-				{"label": "East", "value": "E"},
-				{"label": "Southeast", "value": "SE"},
-				{"label": "South", "value": "S"},
-				{"label": "Southwest", "value": "SW"},
-				{"label": "West", "value": "W"},
-				{"label": "Northwest", "value": "NW"}
+				{"label": "North", "value": "N"}, {"label": "Northeast", "value": "NE"},
+				{"label": "East",  "value": "E"}, {"label": "Southeast", "value": "SE"},
+				{"label": "South", "value": "S"}, {"label": "Southwest", "value": "SW"},
+				{"label": "West",  "value": "W"}, {"label": "Northwest",  "value": "NW"}
 			],
 			"default": "E",
 			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray1Enabled"
 		},
 		"pvArray1Tilt": {
 			"type": "number",
-			"min": 0,
-			"max": 90,
-			"label": "PV Array 1 - Tilt Angle (degrees)",
+			"min": 0, "max": 90,
+			"label": "pvArray1Tilt",
 			"help": "0 = horizontal, 90 = vertical",
 			"default": 0,
 			"newLine": true,
@@ -214,7 +197,7 @@
 		},
 		"pvArray2Enabled": {
 			"type": "checkbox",
-			"label": "PV Array 2 Enabled",
+			"label": "pvArray2Enabled",
 			"default": true,
 			"newLine": true,
 			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
@@ -222,38 +205,33 @@
 		"pvArray2Power": {
 			"type": "number",
 			"min": 0,
-			"label": "PV Array 2 - Peak Power (kWp)",
+			"label": "pvArray2Power",
 			"default": 4.2,
 			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray2Enabled"
 		},
 		"pvArray2Orientation": {
 			"type": "select",
-			"label": "PV Array 2 - Orientation",
+			"label": "pvArray2Orientation",
 			"options": [
-				{"label": "North", "value": "N"},
-				{"label": "Northeast", "value": "NE"},
-				{"label": "East", "value": "E"},
-				{"label": "Southeast", "value": "SE"},
-				{"label": "South", "value": "S"},
-				{"label": "Southwest", "value": "SW"},
-				{"label": "West", "value": "W"},
-				{"label": "Northwest", "value": "NW"}
+				{"label": "North", "value": "N"}, {"label": "Northeast", "value": "NE"},
+				{"label": "East",  "value": "E"}, {"label": "Southeast", "value": "SE"},
+				{"label": "South", "value": "S"}, {"label": "Southwest", "value": "SW"},
+				{"label": "West",  "value": "W"}, {"label": "Northwest",  "value": "NW"}
 			],
 			"default": "S",
 			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray2Enabled"
 		},
 		"pvArray2Tilt": {
 			"type": "number",
-			"min": 0,
-			"max": 90,
-			"label": "PV Array 2 - Tilt Angle (degrees)",
+			"min": 0, "max": 90,
+			"label": "pvArray2Tilt",
 			"default": 52,
 			"newLine": true,
 			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray2Enabled"
 		},
 		"pvArray3Enabled": {
 			"type": "checkbox",
-			"label": "PV Array 3 Enabled",
+			"label": "pvArray3Enabled",
 			"default": true,
 			"newLine": true,
 			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
@@ -261,31 +239,26 @@
 		"pvArray3Power": {
 			"type": "number",
 			"min": 0,
-			"label": "PV Array 3 - Peak Power (kWp)",
+			"label": "pvArray3Power",
 			"default": 1.6,
 			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray3Enabled"
 		},
 		"pvArray3Orientation": {
 			"type": "select",
-			"label": "PV Array 3 - Orientation",
+			"label": "pvArray3Orientation",
 			"options": [
-				{"label": "North", "value": "N"},
-				{"label": "Northeast", "value": "NE"},
-				{"label": "East", "value": "E"},
-				{"label": "Southeast", "value": "SE"},
-				{"label": "South", "value": "S"},
-				{"label": "Southwest", "value": "SW"},
-				{"label": "West", "value": "W"},
-				{"label": "Northwest", "value": "NW"}
+				{"label": "North", "value": "N"}, {"label": "Northeast", "value": "NE"},
+				{"label": "East",  "value": "E"}, {"label": "Southeast", "value": "SE"},
+				{"label": "South", "value": "S"}, {"label": "Southwest", "value": "SW"},
+				{"label": "West",  "value": "W"}, {"label": "Northwest",  "value": "NW"}
 			],
 			"default": "W",
 			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray3Enabled"
 		},
 		"pvArray3Tilt": {
 			"type": "number",
-			"min": 0,
-			"max": 90,
-			"label": "PV Array 3 - Tilt Angle (degrees)",
+			"min": 0, "max": 90,
+			"label": "pvArray3Tilt",
 			"default": 0,
 			"newLine": true,
 			"hidden": "(!data.enableAiMode && !data.enableSmartCharging) || !data.pvArray3Enabled"
@@ -300,7 +273,7 @@
 		"batteryCapacity": {
 			"type": "number",
 			"min": 0,
-			"label": "Battery Capacity (kWh)",
+			"label": "batteryCapacity",
 			"help": "Total usable battery capacity",
 			"default": 10,
 			"newLine": true,
@@ -308,77 +281,35 @@
 		},
 		"batteryMinSoc": {
 			"type": "number",
-			"min": 0,
-			"max": 100,
-			"label": "Minimum SOC (%)",
-			"help": "Minimum battery state of charge to maintain",
+			"min": 0, "max": 100,
+			"label": "batteryMinSoc",
+			"help": "Minimum battery SOC to maintain",
 			"default": 20,
 			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
 		},
-		"batteryMaxChargePower": {
+		"acChargePowerKw": {
 			"type": "number",
-			"min": 0,
-			"label": "Max Charge Power (kW)",
-			"help": "Maximum charging power of battery",
-			"default": 5,
+			"min": 0.1, "max": 50,
+			"label": "acChargePowerKw",
+			"help": "Maximum AC charging power from grid in kW",
+			"default": 4.0,
 			"newLine": true,
 			"hidden": "!data.enableAiMode && !data.enableSmartCharging"
 		},
 		"_evccIntegration": {
 			"type": "header",
-			"text": "EVCC Adapter Integration",
+			"text": "evcc Adapter Integration",
 			"size": 5,
 			"newLine": true,
 			"hidden": "!data.enableAiMode"
 		},
 		"evccInstance": {
 			"type": "text",
-			"label": "EVCC Adapter Instance",
-			"help": "Instance of the evcc adapter (e.g., evcc.0)",
+			"label": "evccInstance",
+			"help": "evcc adapter instance, e.g. evcc.0",
 			"default": "evcc.0",
 			"newLine": true,
 			"hidden": "!data.enableAiMode"
-		},
-		"_historyAnalysis": {
-			"type": "header",
-			"text": "Historical Consumption Analysis",
-			"size": 5,
-			"newLine": true,
-			"hidden": "!data.enableAiMode"
-		},
-		"enableHistoryAnalysis": {
-			"type": "checkbox",
-			"label": "Enable Historical Analysis",
-			"help": "Use historical consumption data from History Adapter for better AI decisions",
-			"default": true,
-			"newLine": true,
-			"hidden": "!data.enableAiMode"
-		},
-		"historyInstance": {
-			"type": "text",
-			"label": "History Adapter Instance",
-			"help": "Instance name of your History adapter (e.g., sql.0, history.0, influxdb.0)",
-			"default": "sql.0",
-			"newLine": true,
-			"hidden": "!data.enableAiMode || !data.enableHistoryAnalysis"
-		},
-		"evccPowerState": {
-			"type": "text",
-			"label": "EVCC Home Power State",
-			"help": "State path for home power consumption (e.g., evcc.0.status.homePower)",
-			"default": "evcc.0.status.homePower",
-			"newLine": true,
-			"hidden": "!data.enableAiMode || !data.enableHistoryAnalysis"
-		},
-		"historyAnalysisDays": {
-			"type": "number",
-			"min": 1,
-			"max": 30,
-			"label": "Analysis Days",
-			"help": "Number of days of historical data to analyze",
-			"default": 7,
-			"newLine": true,
-			"hidden": "!data.enableAiMode || !data.enableHistoryAnalysis"
 		},
 		"_aiDecisionSettings": {
 			"type": "header",
@@ -387,171 +318,198 @@
 			"newLine": true,
 			"hidden": "!data.enableAiMode"
 		},
+		"enableHistoryAnalysis": {
+			"type": "checkbox",
+			"label": "enableHistoryAnalysis",
+			"help": "Use historical data from History adapter for better decisions",
+			"default": true,
+			"newLine": true,
+			"hidden": "!data.enableAiMode"
+		},
+		"historyAnalysisDays": {
+			"type": "number",
+			"min": 1, "max": 30,
+			"label": "historyAnalysisDays",
+			"help": "Number of days to analyze (1–30)",
+			"default": 7,
+			"newLine": true,
+			"hidden": "!data.enableAiMode || !data.enableHistoryAnalysis"
+		},
 		"aiDecisionTimes": {
 			"type": "text",
-			"label": "Decision Times (comma-separated HH:MM)",
-			"help": "Multiple decision times per day using brightsky's 13h rolling forecast. Example: 06:00,17:30 (morning & evening). More decisions = more accurate but higher API costs.",
+			"label": "aiDecisionTimes",
+			"help": "Decision times per day, e.g. 06:00,17:30",
 			"default": "06:00,17:30",
 			"newLine": true,
 			"hidden": "!data.enableAiMode"
 		},
 		"_aiDecisionNote": {
 			"type": "staticText",
-			"text": "💡 Multiple decisions recommended: brightsky provides only 13h forecast. Run decisions every 8-12h for optimal coverage (e.g., morning 06:00 and evening 17:30).",
+			"text": "ai_decision_tip",
 			"newLine": true,
 			"hidden": "!data.enableAiMode"
 		},
 		"_smartChargingPlanner": {
 			"type": "header",
-			"text": "Smart Charging Planner - Akku-Ladeziel Berechnung",
+			"text": "Smart Charging Planner – Battery Charge Target Calculation",
 			"size": 3,
 			"newLine": true
 		},
 		"_smartChargingPlannerDesc": {
 			"type": "staticText",
-			"text": "Berechnet täglich den optimalen Akku-Ladeziel (%) für die günstige Stromphase, damit der Akku bis zur ausreichenden PV-Produktion reicht. Benötigt brightsky-Adapter und PV/Batterie-Konfiguration (unten oder aus dem AI Mode Abschnitt).",
+			"text": "smart_charging_desc",
 			"newLine": true
 		},
 		"enableSmartCharging": {
 			"type": "checkbox",
-			"label": "Smart Charging Planner aktivieren",
-			"help": "Berechnet täglich das optimale Akku-Ladeziel basierend auf PV-Vorhersage und Strompreisen",
+			"label": "enableSmartCharging",
+			"help": "Calculate daily battery charge target based on PV forecast and pricing",
 			"default": false,
 			"newLine": true
 		},
 		"evccUrl": {
 			"type": "text",
-			"label": "evcc URL",
-			"help": "HTTP-Adresse von evcc (z.B. http://192.168.1.100:7070 oder http://evcc:7070). Wird für die Batteriesteuerung via REST API benötigt.",
+			"label": "evccUrl",
+			"help": "evcc HTTP address, e.g. http://evcc:7070",
 			"default": "http://evcc:7070",
 			"newLine": true,
 			"hidden": "!data.enableSmartCharging"
 		},
 		"_evccNote": {
 			"type": "staticText",
-			"text": "⚠️ Voraussetzung: In evcc unter Darstellung → Experimentell → 'Experimentelle Funktionen anzeigen' aktivieren, dann unter Hausbatterie → Netzladen → Preisgrenze einmalig manuell testen.",
+			"text": "evcc_requirement_note",
 			"newLine": true,
 			"hidden": "!data.enableSmartCharging"
 		},
 		"smartChargingCalcTime": {
 			"type": "text",
-			"label": "Berechnungszeit (HH:MM)",
-			"help": "Tägliche Uhrzeit für die Berechnung, z.B. 22:00 (vor der günstigen Nachtstromphase)",
+			"label": "smartChargingCalcTime",
+			"help": "Daily calculation time, e.g. 22:00 (before cheap night phase)",
 			"default": "22:00",
 			"newLine": true,
 			"hidden": "!data.enableSmartCharging"
 		},
 		"householdConsumptionKw": {
 			"type": "number",
-			"min": 0.1,
-			"max": 20,
-			"label": "Durchschnittlicher Hausverbrauch (kW)",
-			"help": "Mittlerer Stromverbrauch des Hauses in kW (ohne EV und PV). Wird für die Berechnung des Energie-Gaps genutzt.",
+			"min": 0.1, "max": 20,
+			"label": "householdConsumptionKw",
+			"help": "Average household consumption in kW (fallback without historical data)",
 			"default": 0.5,
 			"newLine": true,
 			"hidden": "!data.enableSmartCharging"
 		},
 		"pvSufficiencyThreshold": {
 			"type": "number",
-			"min": 0.1,
-			"max": 20,
-			"label": "PV-Ausreichungsschwelle (kWh/h)",
-			"help": "Ab welcher PV-Produktion pro Stunde gilt die Solaranlage als 'ausreichend' (deckt Hausverbrauch). Typisch: 0.5–2 kWh/h.",
+			"min": 0.1, "max": 20,
+			"label": "pvSufficiencyThreshold",
+			"help": "Min. PV output per hour for solar sufficiency (fallback)",
 			"default": 1.0,
 			"hidden": "!data.enableSmartCharging"
 		},
-		"acChargePowerKw": {
-			"type": "number",
-			"min": 0.1,
-			"max": 50,
-			"label": "AC-Ladeleistung Hausbatterie (kW)",
-			"help": "Maximale Ladeleistung der Hausbatterie aus dem Netz in kW. Wird für die Just-in-Time Berechnung des Ladestarts benötigt.",
-			"default": 4.0,
+		"_evccStatesHeader": {
+			"type": "header",
+			"text": "evcc Data Points & History",
+			"size": 5,
 			"newLine": true,
 			"hidden": "!data.enableSmartCharging"
 		},
-		"_historicalPvHeader": {
-			"type": "staticText",
-			"text": "📊 Historische PV-Daten (aus SQL-Adapter)",
+		"evccBatterySocState": {
+			"type": "text",
+			"label": "evccBatterySocState",
+			"help": "ioBroker state with battery SOC from evcc (JSON object with .soc field, e.g. evcc.0.status.battery)",
+			"default": "evcc.0.status.battery",
 			"newLine": true,
 			"hidden": "!data.enableSmartCharging"
 		},
 		"evccPvPowerState": {
 			"type": "text",
-			"label": "evcc PV-Leistungs-Datenpunkt",
-			"help": "ioBroker-Datenpunkt für die aktuelle PV-Leistung aus evcc (z.B. evcc.0.status.pv). Muss in sql.0 / history.0 gespeichert werden.",
+			"label": "evccPvPowerState",
+			"help": "ioBroker state with current PV power from evcc, must be logged by history adapter",
 			"default": "evcc.0.status.pv",
 			"newLine": true,
 			"hidden": "!data.enableSmartCharging"
 		},
+		"evccPowerState": {
+			"type": "text",
+			"label": "evccPowerState",
+			"help": "ioBroker state with home power consumption from evcc, must be logged",
+			"default": "evcc.0.status.homePower",
+			"newLine": true,
+			"hidden": "!data.enableSmartCharging"
+		},
+		"historyInstance": {
+			"type": "text",
+			"label": "historyInstance",
+			"help": "History adapter instance logging evcc consumption and PV data, e.g. sql.0",
+			"default": "sql.0",
+			"newLine": true,
+			"hidden": "!data.enableSmartCharging && (!data.enableAiMode || !data.enableHistoryAnalysis)"
+		},
 		"pvConservatismFactor": {
 			"type": "number",
-			"min": 0.1,
-			"max": 1.0,
-			"step": 0.05,
-			"label": "PV-Konservativitätsfaktor (0.1–1.0)",
-			"help": "Anteil der historischen PV-Durchschnittsproduktion, der angerechnet wird. 0.75 = 75% des Mittels (konservativ). Niedrigerer Wert → Akku wird mehr geladen.",
+			"min": 0.1, "max": 1.0, "step": 0.05,
+			"label": "pvConservatismFactor",
+			"help": "Share of historical average PV credited (0.75 = 75%)",
 			"default": 0.75,
 			"newLine": true,
 			"hidden": "!data.enableSmartCharging"
 		},
 		"enableSmartChargingNotification": {
 			"type": "checkbox",
-			"label": "Tägliche Ladeplanung per Telegram senden",
-			"help": "Sendet nach jeder Berechnung eine Zusammenfassung (Ladeplan, PV-Prognose) via Telegram",
+			"label": "enableSmartChargingNotification",
+			"help": "Send daily charging plan summary via Telegram",
 			"default": false,
 			"newLine": true,
 			"hidden": "!data.enableSmartCharging"
 		},
 		"_smartChargingMonitoring": {
 			"type": "header",
-			"text": "Smart Charging Monitoring",
+			"text": "Charging Monitoring",
 			"size": 3,
 			"newLine": true
 		},
 		"enableChargingMonitoring": {
 			"type": "checkbox",
-			"label": "Enable Charging Monitoring",
-			"help": "Monitor if smart charging is active after configured time when vehicle SoC is low",
+			"label": "enableChargingMonitoring",
+			"help": "Alert when smart charging is not active after configured time with low vehicle SOC",
 			"default": false,
 			"newLine": true
 		},
 		"monitoringStartTime": {
 			"type": "text",
-			"label": "Monitoring Start Time (HH:MM)",
-			"help": "Time when monitoring should start (e.g., 20:00)",
+			"label": "monitoringStartTime",
+			"help": "Monitoring activation time, e.g. 20:00",
 			"default": "20:00",
 			"newLine": true,
 			"hidden": "!data.enableChargingMonitoring"
 		},
 		"minVehicleSoc": {
 			"type": "number",
-			"min": 0,
-			"max": 100,
-			"label": "Minimum Vehicle SoC (%)",
-			"help": "Trigger notification if vehicle SoC is below this value",
+			"min": 0, "max": 100,
+			"label": "minVehicleSoc",
+			"help": "Alert threshold for vehicle state of charge",
 			"default": 60,
 			"hidden": "!data.enableChargingMonitoring"
 		},
 		"telegramInstance": {
 			"type": "text",
-			"label": "Telegram Instance",
-			"help": "Telegram adapter instance for notifications (e.g., telegram.0)",
+			"label": "telegramInstance",
+			"help": "Telegram adapter instance for notifications, e.g. telegram.0",
 			"default": "telegram.0",
 			"newLine": true,
 			"hidden": "!data.enableChargingMonitoring && !data.enableSmartChargingNotification"
 		},
 		"telegramUser": {
 			"type": "text",
-			"label": "Telegram User",
-			"help": "Telegram username to receive notifications (leave empty to use default)",
+			"label": "telegramUser",
+			"help": "Telegram username (empty = default user)",
 			"default": "",
 			"hidden": "!data.enableChargingMonitoring && !data.enableSmartChargingNotification"
 		},
 		"signalInstance": {
 			"type": "text",
-			"label": "Signal Instance (optional)",
-			"help": "Signal adapter instance for notifications (e.g., signal-cmb.0)",
+			"label": "signalInstance",
+			"help": "Signal adapter instance for notifications, e.g. signal-cmb.0",
 			"default": "",
 			"newLine": true,
 			"hidden": "!data.enableChargingMonitoring"
@@ -559,8 +517,8 @@
 		"evccLoadpointIndex": {
 			"type": "number",
 			"min": 0,
-			"label": "EVCC Loadpoint Index",
-			"help": "Index of the evcc loadpoint to monitor (usually 0)",
+			"label": "evccLoadpointIndex",
+			"help": "evcc loadpoint index to monitor (usually 0)",
 			"default": 0,
 			"hidden": "!data.enableChargingMonitoring"
 		}
