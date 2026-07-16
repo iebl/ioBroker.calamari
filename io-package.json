@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "calamari",
-    "version": "1.5.5",
+    "version": "1.5.6",
     "news": {
+      "1.5.6": {
+        "en": "Smart Charging: fix socDeficit calculation – battery discharge during cheap phase (before charging starts) is now subtracted from targetSoc to avoid too-low morning SoC",
+        "de": "Smart Charging: Berechnung des Ladebedarfs korrigiert – Entladung des Akkus während der Billigphase (vor Ladestart) wird jetzt vom Ziel-SoC abgezogen, um zu niedrigen Morgenladestand zu vermeiden",
+        "ru": "Smart Charging: исправлен расчёт socDeficit – разряд батареи в дешёвой фазе до начала зарядки теперь учитывается",
+        "pt": "Smart Charging: cálculo do socDeficit corrigido – descarga da bateria durante a fase barata (antes do início da carga) agora subtraída",
+        "nl": "Smart Charging: socDeficit-berekening gecorrigeerd – ontlading van de batterij in de goedkope fase voor laadstart nu afgetrokken",
+        "fr": "Smart Charging: calcul du socDeficit corrigé – la décharge de la batterie pendant la phase bon marché (avant le début de la charge) est maintenant soustraite",
+        "it": "Smart Charging: calcolo socDeficit corretto – la scarica della batteria durante la fase economica (prima dell'inizio della ricarica) è ora sottratta",
+        "es": "Smart Charging: cálculo de socDeficit corregido – la descarga de la batería durante la fase barata (antes de iniciar la carga) ahora se resta",
+        "pl": "Smart Charging: poprawiono obliczanie socDeficit – rozładowanie baterii w taniej fazie (przed startem ładowania) jest teraz odejmowane",
+        "uk": "Smart Charging: виправлено розрахунок socDeficit – розряд батареї під час дешевої фази (до початку зарядки) тепер враховується",
+        "zh-cn": "智能充电：修正socDeficit计算——廉价阶段（充电开始前）电池放电量现已从目标SoC中扣除"
+      },
       "1.5.5": {
         "en": "Multilingual ioBroker state names: all data point descriptions now translated into all 11 supported languages (de, en, es, fr, it, nl, pl, pt, ru, uk, zh-cn)",
         "de": "Mehrsprachige Datenpunkt-Beschreibungen: alle State-Namen sind jetzt in alle 11 unterstützten Sprachen übersetzt (de, en, es, fr, it, nl, pl, pt, ru, uk, zh-cn)",
